@@ -684,6 +684,270 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+
+        /* ===== FILMOGRAPHY SHOWCASE ===== */
+        .filmography-showcase {
+            background: var(--morandi-nude);
+            padding: 3rem 2rem 6rem;
+        }
+        .film-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s ease 0.2s;
+        }
+        .film-grid.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .film-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            background: var(--bg-main);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .film-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .film-img-wrap {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+        .film-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            filter: grayscale(10%);
+        }
+        .film-card:hover .film-img-wrap img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+        .film-info {
+            padding: 1.2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .film-title {
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+        }
+        .film-role {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+        .film-score {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-top: 0.3rem;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .film-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .film-img-wrap { height: 160px; }
+        }
+
+        /* ===== ACCORDION MODULES ===== */
+        .accordion-card {
+            background: var(--bg-main);
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--morandi-pink);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .accordion-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+        }
+        .accordion-header {
+            padding: 2rem 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            user-select: none;
+        }
+        .accordion-header:hover {
+            background: var(--morandi-cream);
+        }
+        .accordion-header .mc-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            min-width: 100px;
+        }
+        .accordion-header .mc-purpose {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 400;
+            flex: 1;
+        }
+        .accordion-icon {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--morandi-pink);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            line-height: 1;
+        }
+        .accordion-card.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .accordion-card.active .accordion-body {
+            max-height: 800px;
+        }
+        .accordion-content {
+            padding: 0 3rem 2.5rem;
+            border-top: 1px solid var(--morandi-warm);
+        }
+        .accordion-content p {
+            font-size: 0.85rem;
+            line-height: 2.2;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-top: 1.5rem;
+        }
+        .accordion-content p strong {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .accordion-episodes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+        .acc-ep {
+            padding: 0.5rem 1.2rem;
+            background: var(--morandi-cream);
+            font-size: 0.72rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            border-radius: 2px;
+        }
+        .accordion-highlight {
+            font-size: 0.82rem !important;
+            color: var(--accent) !important;
+            font-weight: 400 !important;
+            font-style: italic;
+        }
+        .accordion-brand {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem !important;
+            letter-spacing: 0.1em;
+            color: var(--text-muted) !important;
+        }
+        .accordion-series-list {
+            margin-top: 1.5rem;
+        }
+        .acc-series-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--morandi-warm);
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+        }
+        .acc-series-item:last-child { border-bottom: none; }
+        .acc-series-item strong {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            min-width: 120px;
+        }
+        .acc-series-item span {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* ===== SERIES ACCORDION ===== */
+        .series-accordion {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s ease 0.2s;
+        }
+        .series-accordion.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .series-acc-item {
+            border-bottom: 1px solid var(--morandi-warm);
+        }
+        .series-acc-item:last-child { border-bottom: none; }
+        .series-acc-header {
+            padding: 1.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .series-acc-header:hover {
+            background: var(--morandi-cream);
+            padding-left: 1.5rem;
+        }
+        .series-acc-name {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--text-primary);
+            flex: 1;
+        }
+        .series-acc-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding: 0.3rem 0.8rem;
+            border: 1px solid var(--morandi-warm);
+        }
+        .series-acc-header .accordion-icon {
+            font-size: 1.3rem;
+        }
+        .series-acc-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .series-acc-item.active .series-acc-body {
+            max-height: 200px;
+        }
+        .series-acc-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+        .series-acc-body p {
+            padding: 0 1rem 1.5rem;
+            font-size: 0.82rem;
+            line-height: 2.2;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav { padding: 1.5rem 1.5rem; }
@@ -724,11 +988,56 @@
 </section>
 
 <!-- IDENTITY: 演员身份 -->
-<section class="concept concept-morandi-1">
+<section class="concept concept-morandi-1" style="min-height: auto; padding: 6rem 2rem 3rem;">
     <div class="concept-inner" data-reveal>
         <p class="concept-big">首先，你是一个<em>演员</em></p>
         <p class="concept-sub">能抗剧，有作品，有观众缘。<br>从《北京爱情故事》到荧幕上的每一个角色——<br>你的底气，来自于你的实力。</p>
         <p class="concept-tag">Actress · Storyteller · Icon</p>
+    </div>
+</section>
+<!-- FILMOGRAPHY SHOWCASE -->
+<section class="filmography-showcase">
+    <div class="film-grid" data-reveal>
+        <div class="film-card">
+            <div class="film-img-wrap">
+                <img src="images/beijing_linxia.jpg" alt="北京爱情故事 · 林夏" loading="lazy">
+            </div>
+            <div class="film-info">
+                <span class="film-title">《北京爱情故事》</span>
+                <span class="film-role">饰 林夏</span>
+                <span class="film-score">豆瓣 7.9</span>
+            </div>
+        </div>
+        <div class="film-card">
+            <div class="film-img-wrap">
+                <img src="images/laojiu_grey.jpg" alt="老舅 · 崔小红" loading="lazy">
+            </div>
+            <div class="film-info">
+                <span class="film-title">《老舅》</span>
+                <span class="film-role">饰 崔小红</span>
+                <span class="film-score">豆瓣 7.0</span>
+            </div>
+        </div>
+        <div class="film-card">
+            <div class="film-img-wrap">
+                <img src="images/zhengdang_leishuang.jpg" alt="正当防卫 · 雷爽" loading="lazy">
+            </div>
+            <div class="film-info">
+                <span class="film-title">《正当防卫》</span>
+                <span class="film-role">饰 雷爽</span>
+                <span class="film-score">豆瓣 6.1</span>
+            </div>
+        </div>
+        <div class="film-card">
+            <div class="film-img-wrap">
+                <img src="images/laojiu_red.jpg" alt="老舅 · 崔小红（年轻）" loading="lazy">
+            </div>
+            <div class="film-info">
+                <span class="film-title">《老舅》</span>
+                <span class="film-role">崔小红 · 年轻时期</span>
+                <span class="film-score">天生丽质</span>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -746,7 +1055,7 @@
 <section class="concept concept-morandi-3">
     <div class="concept-inner" data-reveal>
         <p class="concept-big">这不是降维<br>这是<em>与时俱进</em></p>
-        <p class="concept-sub" style="color: rgba(255,255,255,0.5);">当一个好演员愿意走进千万个家庭的日常，<br>那不是放下身段，那是一种<strong style="color: var(--morandi-pink);">格局</strong>。</p>
+        <p class="concept-sub" style="color: rgba(255,255,255,0.5);">最好的商业，是做自己。</p>
     </div>
 </section>
 
@@ -881,23 +1190,68 @@
             <p class="section-desc">三个层级，构建完整的内容生态</p>
         </div>
 
-        <a href="shows/shinian.html" class="module-card" data-reveal style="text-decoration: none; color: inherit; cursor: pointer;">
-            <div class="mc-name">大综艺项目</div>
-            <div class="mc-purpose">10年婚姻大IP<br>《十年·同行》</div>
-            <div class="mc-content">围绕10年相遇，内容可具体再策划。可以每次邀请粉丝/明星嘉宾，带着自己的10年故事。年度收官+线下直播，嘉宾登台。<br><span style="display:inline-block;margin-top:1rem;font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);">点击查看详情 →</span></div>
-        </a>
-
-        <a href="shows/series.html" class="module-card" data-reveal style="text-decoration: none; color: inherit; cursor: pointer;">
-            <div class="mc-name">系列项目</div>
-            <div class="mc-purpose">科普向增加信任感<br>《张歆艺花钱请专家》</div>
-            <div class="mc-content">《备孕日记》《开学季》《宝妈焕新季》《暑假亲子行》《秋冬孕养日记》《双十一宝妈攻略》《年度好用物盘点》……<br><span style="display:inline-block;margin-top:1rem;font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);">点击查看详情 →</span></div>
-        </a>
-
-        <a href="shows/daily.html" class="module-card" data-reveal style="text-decoration: none; color: inherit; cursor: pointer;">
-            <div class="mc-name">日常内容</div>
-            <div class="mc-purpose">日常向增加共情感<br>《共情不完美》</div>
-            <div class="mc-content">热点视频、日常唆嗑、节日氛围、日常出游……<br><span style="display:inline-block;margin-top:1rem;font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);">点击查看详情 →</span></div>
-        </a>
+        <div class="accordion-card" data-reveal>
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div class="mc-name">大综艺项目</div>
+                <div class="mc-purpose">10年婚姻大IP · 《十年·同行》</div>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-content">
+                    <p>围绕"十年相遇"这个时间锚点，每期邀请一组嘉宾（粉丝/明星/素人），分享他们各自的"十年故事"。</p>
+                    <p><strong>核心概念：</strong>张歆艺不是主持人，是一个同样走过十年的人，在和另一个走过十年的人聊天。</p>
+                    <div class="accordion-episodes">
+                        <span class="acc-ep">01 十年前的那封信</span>
+                        <span class="acc-ep">02 差点分开的那一天</span>
+                        <span class="acc-ep">03 孩子改变了什么</span>
+                        <span class="acc-ep">04 下一个十年</span>
+                    </div>
+                    <p class="accordion-highlight">年度收官：线下直播 + 嘉宾登台，全年参与者回到同一个舞台。</p>
+                    <p class="accordion-brand">品牌适配：婚庆品牌、珠宝品牌、家居品牌、亲子品牌</p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-card" data-reveal>
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div class="mc-name">系列项目</div>
+                <div class="mc-purpose">科普向增加信任感 · 《张歆艺花钱请专家》</div>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-content">
+                    <p>联合各领域专家，用真实经历+科学知识，给妈妈们最温暖的陪伴和最专业的建议。</p>
+                    <div class="accordion-series-list">
+                        <div class="acc-series-item"><strong>《备孕日记》</strong><span>每一个新生命的到来，都值得被认真准备。</span></div>
+                        <div class="acc-series-item"><strong>《开学季》</strong><span>每一次开学，都是妈妈和孩子的共同成长。</span></div>
+                        <div class="acc-series-item"><strong>《宝妈焕新季》</strong><span>成为妈妈之后，你依然值得被宠爱。</span></div>
+                        <div class="acc-series-item"><strong>《暑假亲子行》</strong><span>最好的教育，是带孩子去看世界。</span></div>
+                        <div class="acc-series-item"><strong>《秋冬孕养日记》</strong><span>换季时节，守护妈妈和宝宝的每一天。</span></div>
+                        <div class="acc-series-item"><strong>《双十一宝妈攻略》</strong><span>不是教你花钱，是帮你省钱。</span></div>
+                        <div class="acc-series-item"><strong>《年度好用物盘点》</strong><span>一整年用下来，只推荐真正好用的。</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-card" data-reveal>
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+                <div class="mc-name">日常内容</div>
+                <div class="mc-purpose">日常向增加共情感 · 《共情不完美》</div>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-body">
+                <div class="accordion-content">
+                    <p>完美是一种压力，不完美才是一种释放。不是来教你怎么做妈妈的，是来告诉你——你已经做得很好了。</p>
+                    <div class="accordion-episodes">
+                        <span class="acc-ep">热点视频 · 真实观点</span>
+                        <span class="acc-ep">日常唠嗑 · 没有脚本</span>
+                        <span class="acc-ep">节日氛围 · 情感连接</span>
+                        <span class="acc-ep">日常出游 · 真实状态</span>
+                        <span class="acc-ep">深夜独白 · 说不出口的话</span>
+                    </div>
+                    <p class="accordion-highlight">共情 = 粘性。当一个明星愿意展示自己的脆弱，粉丝的关系就从"仰望"变成了"陪伴"。</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -906,18 +1260,99 @@
     <div class="section-header" data-reveal>
         <p class="section-chapter">IP Matrix</p>
         <h2 class="section-title">系列项目一览</h2>
-        <p class="section-desc">每一个系列，都是一个可以持续产出的内容产品</p>
+        <p class="section-desc">点击展开，查看每个系列的详细规划</p>
     </div>
-    <div class="series-grid" data-reveal>
-        <a href="shows/shinian.html" class="series-tag" style="text-decoration:none;color:inherit;">《十年·同行》</a>
-        <a href="shows/beiyun.html" class="series-tag" style="text-decoration:none;color:inherit;">《备孕日记》</a>
-        <a href="shows/kaixue.html" class="series-tag" style="text-decoration:none;color:inherit;">《开学季》</a>
-        <a href="shows/huanxin.html" class="series-tag" style="text-decoration:none;color:inherit;">《宝妈焕新季》</a>
-        <a href="shows/shujia.html" class="series-tag" style="text-decoration:none;color:inherit;">《暑假亲子行》</a>
-        <a href="shows/qiudong.html" class="series-tag" style="text-decoration:none;color:inherit;">《秋冬孕养日记》</a>
-        <a href="shows/shuangshiyi.html" class="series-tag" style="text-decoration:none;color:inherit;">《双十一宝妈攻略》</a>
-        <a href="shows/niandu.html" class="series-tag" style="text-decoration:none;color:inherit;">《年度好用物盘点》</a>
-        <a href="shows/daily.html" class="series-tag" style="text-decoration:none;color:inherit;">《共情不完美》</a>
+    <div class="series-accordion" data-reveal>
+        <div class="series-acc-item">
+            <div class="series-acc-header" onclick="toggleSeriesAcc(this)">
+                <span class="series-acc-name">《十年·同行》</span>
+                <span class="series-acc-tag">大综艺IP</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="series-acc-body">
+                <p>十年婚姻，不是终点，是一个新故事的开始。围绕"十年相遇"，每期邀请嘉宾分享十年故事。年度收官线下直播，嘉宾登台。</p>
+            </div>
+        </div>
+        <div class="series-acc-item">
+            <div class="series-acc-header" onclick="toggleSeriesAcc(this)">
+                <span class="series-acc-name">《备孕日记》</span>
+                <span class="series-acc-tag">备孕向</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="series-acc-body">
+                <p>每一个新生命的到来，都值得被认真准备。联合妇产科医生，用真实经历+科学知识，给准妈妈最温暖的陪伴。</p>
+            </div>
+        </div>
+        <div class="series-acc-item">
+            <div class="series-acc-header" onclick="toggleSeriesAcc(this)">
+                <span class="series-acc-name">《开学季》</span>
+                <span class="series-acc-tag">教育向</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="series-acc-body">
+                <p>每一次开学，都是妈妈和孩子的共同成长。从幼儿园到小学，每一次过渡都伴随着焦虑和不安，张歆艺是同行者的陪伴。</p>
+            </div>
+        </div>
+        <div class="series-acc-item">
+            <div class="series-acc-header" onclick="toggleSeriesAcc(this)">
+                <span class="series-acc-name">《宝妈焕新季》</span>
+                <span class="series-acc-tag">变美向</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="series-acc-body">
+                <p>成为妈妈之后，你依然值得被宠爱。妈妈的美，不是为了取悦任何人，是为了自己开心。</p>
+            </div>
+        </div>
+        <div class="series-acc-item">
+            <div class="series-acc-header" onclick="toggleSeriesAcc(this)">
+                <span class="series-acc-name">《暑假亲子行》</span>
+                <span class="series-acc-tag">亲子向</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="series-acc-body">
+                <p>最好的教育，是带孩子去看世界。真实记录每一次出行——手忙脚乱、意外惊喜、崩溃瞬间、温馨时刻。</p>
+            </div>
+        </div>
+        <div class="series-acc-item">
+            <div class="series-acc-header" onclick="toggleSeriesAcc(this)">
+                <span class="series-acc-name">《秋冬孕养日记》</span>
+                <span class="series-acc-tag">健康向</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="series-acc-body">
+                <p>换季时节，守护妈妈和宝宝的每一天。联合营养师和儿科医生，定制季节性健康内容。</p>
+            </div>
+        </div>
+        <div class="series-acc-item">
+            <div class="series-acc-header" onclick="toggleSeriesAcc(this)">
+                <span class="series-acc-name">《双十一宝妈攻略》</span>
+                <span class="series-acc-tag">消费向</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="series-acc-body">
+                <p>不是教你花钱，是帮你省钱。替你试过了、替你踩过坑了、替你做好了功课。不是带货，是帮你做选择。</p>
+            </div>
+        </div>
+        <div class="series-acc-item">
+            <div class="series-acc-header" onclick="toggleSeriesAcc(this)">
+                <span class="series-acc-name">《年度好用物盘点》</span>
+                <span class="series-acc-tag">年度向</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="series-acc-body">
+                <p>一整年用下来，只推荐真正好用的。时间是最好的测评师。不是刚收到就推荐，是用了一整年还在用的东西。</p>
+            </div>
+        </div>
+        <div class="series-acc-item">
+            <div class="series-acc-header" onclick="toggleSeriesAcc(this)">
+                <span class="series-acc-name">《共情不完美》</span>
+                <span class="series-acc-tag">日常向</span>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="series-acc-body">
+                <p>完美是一种压力，不完美才是一种释放。不是来教你怎么做妈妈的，是来告诉你——你已经做得很好了。</p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -963,6 +1398,32 @@ const io = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 reveals.forEach(el => io.observe(el));
+
+// Accordion toggle for module cards
+function toggleAccordion(header) {
+    const card = header.parentElement;
+    const isActive = card.classList.contains('active');
+    // Close all siblings in same container
+    const siblings = card.parentElement.querySelectorAll('.accordion-card');
+    siblings.forEach(s => s.classList.remove('active'));
+    // Toggle current
+    if (!isActive) {
+        card.classList.add('active');
+    }
+}
+
+// Accordion toggle for series items
+function toggleSeriesAcc(header) {
+    const item = header.parentElement;
+    const isActive = item.classList.contains('active');
+    // Close all siblings
+    const siblings = item.parentElement.querySelectorAll('.series-acc-item');
+    siblings.forEach(s => s.classList.remove('active'));
+    // Toggle current
+    if (!isActive) {
+        item.classList.add('active');
+    }
+}
 </script>
 
 </body>
