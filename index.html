@@ -733,25 +733,41 @@
         /* ===== ACCORDION MODULES ===== */
         .accordion-card {
             background: var(--bg-main);
-            margin-bottom: 1rem;
-            border-left: 3px solid var(--morandi-pink);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--morandi-pink);
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            border-radius: 4px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
         }
+        .accordion-card:nth-child(1) { border-left-color: #c9a87c; }
+        .accordion-card:nth-child(2) { border-left-color: #b8a9c9; }
+        .accordion-card:nth-child(3) { border-left-color: #a3b8a0; }
         .accordion-card:hover {
-            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            transform: translateX(2px);
         }
+        .accordion-card.active {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+            background: #fdfcfa;
+        }
+        .accordion-card.active:nth-child(1) { background: linear-gradient(135deg, #fdfcfa 0%, #faf6f0 100%); border-left-width: 5px; }
+        .accordion-card.active:nth-child(2) { background: linear-gradient(135deg, #fdfcfa 0%, #f8f5fc 100%); border-left-width: 5px; }
+        .accordion-card.active:nth-child(3) { background: linear-gradient(135deg, #fdfcfa 0%, #f4f8f3 100%); border-left-width: 5px; }
         .accordion-header {
             padding: 2rem 3rem;
             display: flex;
             align-items: center;
             gap: 2rem;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
             user-select: none;
         }
         .accordion-header:hover {
-            background: var(--morandi-cream);
+            background: rgba(201, 168, 124, 0.05);
+        }
+        .accordion-card.active .accordion-header {
+            padding-bottom: 1.2rem;
         }
         .accordion-header .mc-name {
             font-size: 0.95rem;
@@ -770,11 +786,20 @@
             font-size: 1.8rem;
             font-weight: 300;
             color: var(--morandi-pink);
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             line-height: 1;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(201, 168, 124, 0.08);
         }
         .accordion-card.active .accordion-icon {
             transform: rotate(45deg);
+            background: rgba(201, 168, 124, 0.18);
+            color: #c9a87c;
         }
         .accordion-body {
             max-height: 0;
@@ -863,8 +888,21 @@
         }
         .series-acc-item {
             border-bottom: 1px solid var(--morandi-warm);
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            margin-bottom: 2px;
+            border-radius: 3px;
         }
         .series-acc-item:last-child { border-bottom: none; }
+        .series-acc-item:nth-child(odd) { border-left-color: rgba(201, 168, 124, 0.3); }
+        .series-acc-item:nth-child(even) { border-left-color: rgba(184, 169, 201, 0.3); }
+        .series-acc-item.active {
+            background: linear-gradient(135deg, #fdfcfa 0%, #faf6f0 100%);
+            border-left-width: 4px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+        }
+        .series-acc-item.active:nth-child(odd) { border-left-color: #c9a87c; }
+        .series-acc-item.active:nth-child(even) { border-left-color: #b8a9c9; }
         .series-acc-header {
             padding: 1.5rem 1rem;
             display: flex;
