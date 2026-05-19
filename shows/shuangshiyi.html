@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《双十一宝妈攻略》 — 张歆艺账号战略</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .sub-hero { background: linear-gradient(180deg, var(--morandi-blush) 0%, var(--bg-main) 100%); }
+    </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <a href="../index.html" class="sub-nav-back">返回总览</a>
+    <a href="../index.html" class="sub-nav-brand">XINYI</a>
+</nav>
+
+<section class="sub-hero">
+    <p class="sub-hero-label">系列项目 · 消费/种草</p>
+    <h1 class="sub-hero-title">《双十一宝妈攻略》</h1>
+    <p class="sub-hero-subtitle">不是教你花钱，是帮你省钱。</p>
+    <p class="sub-hero-quote">"真正好用的东西，<br>不需要套路来卖。"</p>
+</section>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">定位</h3>
+    <p>双十一是全年最大的消费节点。妈妈们的购物车里装满了孩子的东西，却总是忘了自己。</p>
+    <p>张歆艺的角色：<strong>替你试过了、替你踩过坑了、替你做好了功课</strong>。不是带货，是<strong>帮你做选择</strong>。</p>
+
+    <div class="highlight-box">
+        <h4>内容形式</h4>
+        <p><strong>避坑指南：</strong>那些看起来很火但其实不好用的东西</p>
+        <p><strong>真实测评：</strong>用了三个月以上的东西才有资格推荐</p>
+        <p><strong>分龄清单：</strong>0-1岁/1-3岁/3-6岁，不同阶段的必买清单</p>
+        <p><strong>妈妈也要买：</strong>给自己的犒赏清单，你值得</p>
+    </div>
+</div>
+
+<div class="sub-colored" style="background: var(--morandi-blush);">
+    <div class="sub-colored-inner fade-in">
+        <h3>"好东西不需要吆喝，<br>用过的人会替它说话。"</h3>
+    </div>
+</div>
+
+<div class="sub-footer"><a href="../index.html">← 返回战略总览</a></div>
+
+<script>
+const fades = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+fades.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

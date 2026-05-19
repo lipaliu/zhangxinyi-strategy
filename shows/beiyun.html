@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《备孕日记》 — 张歆艺账号战略</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .sub-hero { background: linear-gradient(180deg, var(--morandi-sage) 0%, var(--bg-main) 100%); }
+    </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <a href="../index.html" class="sub-nav-back">返回总览</a>
+    <a href="../index.html" class="sub-nav-brand">XINYI</a>
+</nav>
+
+<section class="sub-hero">
+    <p class="sub-hero-label">系列项目 · 备孕向</p>
+    <h1 class="sub-hero-title">《备孕日记》</h1>
+    <p class="sub-hero-subtitle">每一个新生命的到来，都值得被认真准备。</p>
+    <p class="sub-hero-quote">"备孕不只是身体的事，<br>更是两个人重新确认彼此的过程。"</p>
+</section>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">为什么做这个系列</h3>
+    <p>备孕是一个<strong>极度私密又极度焦虑</strong>的过程。网上的信息鱼龙混杂，妈妈们不知道该信谁。</p>
+    <p>张歆艺作为一个经历过备孕、怀孕、生产全过程的妈妈，她的分享天然具有<strong>可信度和亲切感</strong>。联合专业医生，用真实经历+科学知识，给每一个准妈妈最温暖的陪伴。</p>
+</div>
+
+<div style="background: var(--morandi-cream); padding: 6rem 2rem;">
+    <div class="sub-section fade-in" style="padding: 0;">
+        <h3 class="sub-section-title">内容规划</h3>
+        <ul class="episode-list">
+            <li><span class="ep-num">01</span><div class="ep-content"><strong>身体准备篇</strong>孕前检查清单、营养补充、运动建议。联合妇产科医生出镜讲解。</div></li>
+            <li><span class="ep-num">02</span><div class="ep-content"><strong>心理准备篇</strong>要不要生？什么时候生？夫妻之间怎么达成共识？</div></li>
+            <li><span class="ep-num">03</span><div class="ep-content"><strong>那些没人告诉你的事</strong>备孕失败的焦虑、高龄备孕的压力、身边人的催生……</div></li>
+            <li><span class="ep-num">04</span><div class="ep-content"><strong>爸爸也要准备</strong>备孕不只是妈妈的事，爸爸需要做什么？</div></li>
+        </ul>
+    </div>
+</div>
+
+<div class="sub-colored" style="background: var(--morandi-sage); opacity: 0.9;">
+    <div class="sub-colored-inner fade-in">
+        <h3>"每一个想成为妈妈的女人，<br>都值得被温柔对待。"</h3>
+    </div>
+</div>
+
+<div class="sub-footer"><a href="../index.html">← 返回战略总览</a></div>
+
+<script>
+const fades = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+fades.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

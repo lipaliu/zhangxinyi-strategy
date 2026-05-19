@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《暑假亲子行》 — 张歆艺账号战略</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .sub-hero { background: linear-gradient(180deg, var(--morandi-warm) 0%, var(--bg-main) 100%); }
+    </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <a href="../index.html" class="sub-nav-back">返回总览</a>
+    <a href="../index.html" class="sub-nav-brand">XINYI</a>
+</nav>
+
+<section class="sub-hero">
+    <p class="sub-hero-label">系列项目 · 亲子/旅行</p>
+    <h1 class="sub-hero-title">《暑假亲子行》</h1>
+    <p class="sub-hero-subtitle">最好的教育，是带孩子去看世界。</p>
+    <p class="sub-hero-quote">"不需要去很远的地方，<br>重要的是——我们在一起。"</p>
+</section>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">内容设想</h3>
+    <p>暑假是每个家庭的"黄金时间"。两个月的时间，怎么安排才能让孩子玩得开心、学到东西、妈妈也不累？</p>
+    <p>张歆艺带着自己的孩子，<strong>真实记录每一次出行</strong>——不是精修的旅行vlog，是带娃出门的真实状态：手忙脚乱、意外惊喜、崩溃瞬间、温馨时刻。</p>
+
+    <div class="highlight-box">
+        <h4>内容板块</h4>
+        <p><strong>目的地推荐：</strong>适合带娃的国内/国际目的地，真实体验分享</p>
+        <p><strong>行李清单：</strong>带娃出门必备物品，避坑指南</p>
+        <p><strong>亲子互动：</strong>旅途中的游戏、对话、教育时刻</p>
+        <p><strong>妈妈生存指南：</strong>带娃旅行如何不崩溃？如何偷到属于自己的10分钟？</p>
+    </div>
+</div>
+
+<div class="sub-colored" style="background: var(--morandi-warm);">
+    <div class="sub-colored-inner fade-in">
+        <h3>"旅行的意义不是目的地，<br>是路上那些<br>只属于我们的瞬间。"</h3>
+    </div>
+</div>
+
+<div class="sub-footer"><a href="../index.html">← 返回战略总览</a></div>
+
+<script>
+const fades = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+fades.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

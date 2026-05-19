@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《十年·同行》 — 张歆艺账号战略</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .sub-hero {
+            background: linear-gradient(180deg, var(--morandi-blush) 0%, var(--bg-main) 100%);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <a href="../index.html" class="sub-nav-back">返回总览</a>
+    <a href="../index.html" class="sub-nav-brand">XINYI</a>
+</nav>
+
+<section class="sub-hero">
+    <p class="sub-hero-label">大综艺项目 · 年度IP</p>
+    <h1 class="sub-hero-title">《十年·同行》</h1>
+    <p class="sub-hero-subtitle">十年婚姻，不是终点，是一个新故事的开始。</p>
+    <p class="sub-hero-quote">"每一对走过十年的人，<br>都有一个只有彼此知道的秘密。"</p>
+</section>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">为什么是十年</h3>
+    <p>十年，是一个足够长的时间去经历一切——从相遇到相知，从争吵到和解，从两个人变成一个家。</p>
+    <p>张歆艺和袁弘的十年，不是完美的童话，而是<strong>真实的、有温度的、有裂缝也有光的</strong>十年。这恰恰是最打动人的。</p>
+    <p>在这个离婚率居高不下的时代，一段走过十年的婚姻本身就是一种力量。不是因为它完美，而是因为它<strong>真实地存在着</strong>。</p>
+</div>
+
+<div style="background: var(--morandi-nude); padding: 6rem 2rem;">
+    <div class="sub-section fade-in" style="padding: 0;">
+        <h3 class="sub-section-title">节目形态</h3>
+        <p><strong>核心概念：</strong>围绕"十年相遇"这个时间锚点，每期邀请一组嘉宾（粉丝/明星/素人），分享他们各自的"十年故事"。</p>
+
+        <div class="highlight-box">
+            <h4>节目亮点</h4>
+            <p>不是访谈，是<strong>陪伴式对话</strong>。张歆艺不是主持人，是一个同样走过十年的人，在和另一个走过十年的人聊天。</p>
+            <p>每一期的核心不是"秀恩爱"，而是<strong>那些差点放弃的瞬间</strong>，以及为什么最终选择了留下。</p>
+        </div>
+
+        <ul class="episode-list">
+            <li>
+                <span class="ep-num">01</span>
+                <div class="ep-content">
+                    <strong>十年前的那封信</strong>
+                    每对嘉宾写一封给十年前自己的信，现场朗读。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">02</span>
+                <div class="ep-content">
+                    <strong>差点分开的那一天</strong>
+                    每段关系都有至暗时刻，聊聊那个差点走散的瞬间。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">03</span>
+                <div class="ep-content">
+                    <strong>孩子改变了什么</strong>
+                    从两个人到一个家，那些被重新定义的关系。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">04</span>
+                <div class="ep-content">
+                    <strong>下一个十年</strong>
+                    如果再给你十年，你想和ta一起做什么？
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">年度收官计划</h3>
+    <p><strong>线下直播 + 嘉宾登台</strong>——全年所有参与过节目的嘉宾回到同一个舞台，每对伴侣用一句话总结自己的十年。</p>
+    <p>这不是一场晚会，是一场关于<strong>爱与坚持</strong>的集体见证。</p>
+
+    <div class="highlight-box">
+        <h4>商业价值</h4>
+        <p>十年婚姻IP天然适配：<strong>婚庆品牌、珠宝品牌、家居品牌、亲子品牌</strong>。每一期都是一次品牌植入的天然场景。年度收官直播可作为品牌年度合作的集中呈现。</p>
+    </div>
+</div>
+
+<div class="sub-colored" style="background: var(--morandi-blush);">
+    <div class="sub-colored-inner fade-in">
+        <h3>"不是秀恩爱，<br>是让每个人相信——<br>爱值得被坚持。"</h3>
+    </div>
+</div>
+
+<div class="sub-footer">
+    <a href="../index.html">← 返回战略总览</a>
+</div>
+
+<script>
+const fades = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+fades.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

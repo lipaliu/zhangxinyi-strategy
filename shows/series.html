@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系列项目 — 张歆艺账号战略</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .sub-hero { background: linear-gradient(180deg, var(--morandi-cream) 0%, var(--bg-main) 100%); }
+    </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <a href="../index.html" class="sub-nav-back">返回总览</a>
+    <a href="../index.html" class="sub-nav-brand">XINYI</a>
+</nav>
+
+<section class="sub-hero">
+    <p class="sub-hero-label">系列项目 · 科普向</p>
+    <h1 class="sub-hero-title">《张歆艺花钱请专家》</h1>
+    <p class="sub-hero-subtitle">用专业建立信任，用真诚打动人心。</p>
+    <p class="sub-hero-quote">"我不是专家，但我可以帮你找到最好的专家。"</p>
+</section>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">核心理念</h3>
+    <p>妈妈们最需要的不是鸡汤，是<strong>靠谱的答案</strong>。</p>
+    <p>张歆艺的角色不是专家本身，而是<strong>"替你问、替你试、替你花钱"</strong>的那个人。她有资源请到最好的儿科医生、营养师、早教专家、心理咨询师——然后把这些知识用最接地气的方式传递给每一个妈妈。</p>
+    <p>这不是广告，这是<strong>服务</strong>。信任，就是这样一点一点建立起来的。</p>
+</div>
+
+<div style="background: var(--morandi-cream); padding: 6rem 2rem;">
+    <div class="sub-section fade-in" style="padding: 0;">
+        <h3 class="sub-section-title">全年系列矩阵</h3>
+
+        <ul class="episode-list">
+            <li>
+                <span class="ep-num">01</span>
+                <div class="ep-content">
+                    <strong>《备孕日记》</strong>
+                    从身体准备到心理建设，联合妇产科医生，给每一个准备迎接新生命的女性最科学的指导。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">02</span>
+                <div class="ep-content">
+                    <strong>《开学季》</strong>
+                    幼儿园选择、入学焦虑、学习习惯培养。联合教育专家，帮妈妈们度过每一个"开学恐惧症"。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">03</span>
+                <div class="ep-content">
+                    <strong>《宝妈焕新季》</strong>
+                    妈妈也需要被看见。护肤、穿搭、身材管理——产后的你，依然可以是最美的自己。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">04</span>
+                <div class="ep-content">
+                    <strong>《暑假亲子行》</strong>
+                    带娃旅行不是受罪，是创造记忆。路线推荐、行李清单、亲子互动游戏。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">05</span>
+                <div class="ep-content">
+                    <strong>《秋冬孕养日记》</strong>
+                    换季时节的孕期/育儿注意事项，联合营养师定制食谱，守护妈妈和宝宝的健康。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">06</span>
+                <div class="ep-content">
+                    <strong>《双十一宝妈攻略》</strong>
+                    不是带货，是<strong>帮你省钱</strong>。真实测评、避坑指南、必买清单。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">07</span>
+                <div class="ep-content">
+                    <strong>《年度好用物盘点》</strong>
+                    一整年用下来，真正好用的东西。不恰饭，只说真话。
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">为什么这个模式有效</h3>
+
+    <div class="highlight-box">
+        <h4>信任飞轮</h4>
+        <p><strong>专业内容 → 用户信任 → 品牌合作 → 更好的资源 → 更专业的内容</strong></p>
+        <p>每一期系列内容都在为张歆艺的"专业妈妈"人设加分。当信任积累到一定程度，品牌合作就是水到渠成的事。</p>
+    </div>
+
+    <div class="highlight-box">
+        <h4>商业模式</h4>
+        <p>每个系列天然对应一个品类的商业合作：备孕→母婴品牌，焕新→美妆品牌，亲子行→旅游/户外品牌，好物盘点→全品类。</p>
+        <p>不是硬广，是<strong>内容即广告，广告即内容</strong>。</p>
+    </div>
+</div>
+
+<div class="sub-colored" style="background: var(--morandi-nude);">
+    <div class="sub-colored-inner fade-in">
+        <h3>"不是在卖东西，<br>是在帮每一个妈妈<br>做更好的选择。"</h3>
+    </div>
+</div>
+
+<div class="sub-footer">
+    <a href="../index.html">← 返回战略总览</a>
+</div>
+
+<script>
+const fades = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+fades.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《共情不完美》 — 张歆艺账号战略</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .sub-hero { background: linear-gradient(180deg, var(--morandi-mauve) 0%, var(--bg-main) 100%); }
+    </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <a href="../index.html" class="sub-nav-back">返回总览</a>
+    <a href="../index.html" class="sub-nav-brand">XINYI</a>
+</nav>
+
+<section class="sub-hero">
+    <p class="sub-hero-label">日常内容 · 共情向</p>
+    <h1 class="sub-hero-title">《共情不完美》</h1>
+    <p class="sub-hero-subtitle">完美是一种压力，不完美才是一种释放。</p>
+    <p class="sub-hero-quote">"我不是来教你怎么做妈妈的，<br>我是来告诉你——你已经做得很好了。"</p>
+</section>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">为什么是"不完美"</h3>
+    <p>这个时代对妈妈的要求太高了。要瘦、要美、要有事业、要陪孩子、要维系婚姻、要情绪稳定、要无所不能。</p>
+    <p>但真实的妈妈是什么样的？<strong>是会崩溃的、会偷哭的、会后悔的、会怀疑自己的。</strong></p>
+    <p>张歆艺要做的，不是展示一个"完美明星妈妈"的样板间，而是<strong>打开自己的不完美</strong>，让每一个同样不完美的妈妈知道——你不是一个人。</p>
+</div>
+
+<div style="background: var(--morandi-cream); padding: 6rem 2rem;">
+    <div class="sub-section fade-in" style="padding: 0;">
+        <h3 class="sub-section-title">内容形态</h3>
+
+        <ul class="episode-list">
+            <li>
+                <span class="ep-num">01</span>
+                <div class="ep-content">
+                    <strong>热点视频</strong>
+                    社会热点中与妈妈/女性/家庭相关的话题，张歆艺的真实观点。不端着，不说教，只说心里话。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">02</span>
+                <div class="ep-content">
+                    <strong>日常唠嗑</strong>
+                    厨房里、车里、沙发上——随手拍的日常碎片。没有脚本，没有滤镜，只有真实的生活。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">03</span>
+                <div class="ep-content">
+                    <strong>节日氛围</strong>
+                    母亲节、儿童节、春节、中秋——每一个节日都是一次情感连接的机会。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">04</span>
+                <div class="ep-content">
+                    <strong>日常出游</strong>
+                    带娃出门的真实状态——不是精修的旅行大片，是手忙脚乱中的小确幸。
+                </div>
+            </li>
+            <li>
+                <span class="ep-num">05</span>
+                <div class="ep-content">
+                    <strong>深夜独白</strong>
+                    孩子睡了之后的那个自己。关于焦虑、关于成长、关于那些说不出口的话。
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">这类内容的力量</h3>
+
+    <div class="highlight-box">
+        <h4>共情 = 粘性</h4>
+        <p>当一个明星愿意展示自己的脆弱，粉丝的关系就从"仰望"变成了"陪伴"。这种关系是最牢固的，也是<strong>商业价值最高的</strong>。</p>
+        <p>因为信任一个人，才会信任她推荐的东西。</p>
+    </div>
+
+    <div class="highlight-box">
+        <h4>日常即内容</h4>
+        <p>不需要大制作、不需要团队、不需要脚本。<strong>生活本身就是最好的内容。</strong></p>
+        <p>这是成本最低、但情感浓度最高的内容形态。也是保持账号活跃度和更新频率的基石。</p>
+    </div>
+</div>
+
+<div class="sub-colored" style="background: linear-gradient(135deg, var(--morandi-mauve), var(--morandi-blush));">
+    <div class="sub-colored-inner fade-in">
+        <h3>"不完美不是缺陷，<br>不完美是<br>我们彼此相认的暗号。"</h3>
+    </div>
+</div>
+
+<div class="sub-footer">
+    <a href="../index.html">← 返回战略总览</a>
+</div>
+
+<script>
+const fades = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+fades.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《年度好用物盘点》 — 张歆艺账号战略</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .sub-hero { background: linear-gradient(180deg, var(--morandi-taupe) 0%, var(--bg-main) 100%); }
+        .sub-hero .sub-hero-title { color: var(--text-light); }
+        .sub-hero .sub-hero-subtitle { color: rgba(255,255,255,0.7); }
+        .sub-hero .sub-hero-label { color: rgba(255,255,255,0.4); }
+        .sub-hero .sub-hero-quote { color: var(--morandi-blush); }
+    </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <a href="../index.html" class="sub-nav-back">返回总览</a>
+    <a href="../index.html" class="sub-nav-brand">XINYI</a>
+</nav>
+
+<section class="sub-hero">
+    <p class="sub-hero-label">系列项目 · 年度盘点</p>
+    <h1 class="sub-hero-title">《年度好用物盘点》</h1>
+    <p class="sub-hero-subtitle">一整年用下来，只推荐真正好用的。</p>
+    <p class="sub-hero-quote">"时间是最好的测评师。"</p>
+</section>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">内容逻辑</h3>
+    <p>年底盘点是最有说服力的种草形式——<strong>不是刚收到就推荐，是用了一整年还在用的东西</strong>。</p>
+    <p>这种"时间验证"的推荐方式，天然具有最高的可信度。也是全年内容的一次集中变现机会。</p>
+
+    <div class="highlight-box">
+        <h4>分类盘点</h4>
+        <p><strong>宝宝好物：</strong>玩具、绘本、日用品、辅食工具</p>
+        <p><strong>妈妈好物：</strong>护肤、彩妆、家居、效率工具</p>
+        <p><strong>家庭好物：</strong>厨房电器、收纳神器、出行装备</p>
+        <p><strong>翻车盘点：</strong>买了后悔的东西，真实避坑</p>
+    </div>
+</div>
+
+<div class="sub-colored" style="background: linear-gradient(135deg, var(--morandi-taupe), var(--morandi-warm));">
+    <div class="sub-colored-inner fade-in">
+        <h3 style="color: var(--text-light);">"不恰饭，只说真话。<br>这是信任的底线。"</h3>
+    </div>
+</div>
+
+<div class="sub-footer"><a href="../index.html">← 返回战略总览</a></div>
+
+<script>
+const fades = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+fades.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

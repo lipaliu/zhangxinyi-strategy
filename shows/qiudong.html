@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《秋冬孕养日记》 — 张歆艺账号战略</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .sub-hero { background: linear-gradient(180deg, var(--morandi-nude) 0%, var(--bg-main) 100%); }
+    </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <a href="../index.html" class="sub-nav-back">返回总览</a>
+    <a href="../index.html" class="sub-nav-brand">XINYI</a>
+</nav>
+
+<section class="sub-hero">
+    <p class="sub-hero-label">系列项目 · 健康/营养</p>
+    <h1 class="sub-hero-title">《秋冬孕养日记》</h1>
+    <p class="sub-hero-subtitle">换季时节，守护妈妈和宝宝的每一天。</p>
+    <p class="sub-hero-quote">"最好的养生，<br>是在对的时间做对的事。"</p>
+</section>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">内容方向</h3>
+    <p>秋冬是妈妈和宝宝最需要呵护的季节。干燥、感冒、换季过敏……每一个小问题都让妈妈揪心。</p>
+    <p>联合营养师和儿科医生，为不同阶段的妈妈（孕期/哺乳期/带娃期）定制<strong>季节性健康内容</strong>。</p>
+
+    <div class="highlight-box">
+        <h4>内容板块</h4>
+        <p><strong>季节食谱：</strong>适合秋冬的营养食谱，简单易做，妈妈和宝宝都能吃</p>
+        <p><strong>换季护理：</strong>宝宝皮肤护理、感冒预防、穿衣指南</p>
+        <p><strong>孕期特辑：</strong>秋冬怀孕的注意事项、保暖与运动的平衡</p>
+        <p><strong>妈妈养生：</strong>产后恢复、气血调理、睡眠改善</p>
+    </div>
+</div>
+
+<div class="sub-colored" style="background: var(--morandi-nude);">
+    <div class="sub-colored-inner fade-in">
+        <h3>"照顾好自己，<br>才能更好地<br>照顾你爱的人。"</h3>
+    </div>
+</div>
+
+<div class="sub-footer"><a href="../index.html">← 返回战略总览</a></div>
+
+<script>
+const fades = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+fades.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

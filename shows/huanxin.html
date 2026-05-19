@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《宝妈焕新季》 — 张歆艺账号战略</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .sub-hero { background: linear-gradient(180deg, var(--morandi-pink) 0%, var(--bg-main) 100%); }
+    </style>
+</head>
+<body>
+
+<nav class="sub-nav">
+    <a href="../index.html" class="sub-nav-back">返回总览</a>
+    <a href="../index.html" class="sub-nav-brand">XINYI</a>
+</nav>
+
+<section class="sub-hero">
+    <p class="sub-hero-label">系列项目 · 美妆/生活方式</p>
+    <h1 class="sub-hero-title">《宝妈焕新季》</h1>
+    <p class="sub-hero-subtitle">成为妈妈之后，你依然值得被宠爱。</p>
+    <p class="sub-hero-quote">"爱自己，不是自私，<br>是给孩子最好的示范。"</p>
+</section>
+
+<div class="sub-section fade-in">
+    <h3 class="sub-section-title">核心洞察</h3>
+    <p>很多妈妈在有了孩子之后，就把自己放在了最后面。没时间护肤、没心情打扮、觉得"反正也没人看"。</p>
+    <p>但张歆艺要传递的信息是：<strong>妈妈的美，不是为了取悦任何人，是为了自己开心。</strong></p>
+    <p>这个系列的核心不是"教你变美"，而是<strong>"提醒你——你值得"</strong>。</p>
+
+    <div class="highlight-box">
+        <h4>内容方向</h4>
+        <p><strong>产后护肤：</strong>真实的皮肤状态变化、适合妈妈的简单护肤流程</p>
+        <p><strong>快速穿搭：</strong>5分钟出门的妈妈穿搭公式，好看又方便带娃</p>
+        <p><strong>身材管理：</strong>不是减肥焦虑，是找到和身体和解的方式</p>
+        <p><strong>Me Time：</strong>妈妈的独处时光怎么安排？一杯咖啡、一本书、一个面膜</p>
+    </div>
+</div>
+
+<div class="sub-colored" style="background: var(--morandi-blush);">
+    <div class="sub-colored-inner fade-in">
+        <h3>"你不需要完美，<br>你只需要记得——<br>你也是一个女人。"</h3>
+    </div>
+</div>
+
+<div class="sub-footer"><a href="../index.html">← 返回战略总览</a></div>
+
+<script>
+const fades = document.querySelectorAll('.fade-in');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+fades.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
