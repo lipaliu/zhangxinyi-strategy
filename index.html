@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张歆艺 · 账号战略规划</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --text-primary: #f5f0eb;
+            --text-secondary: #b8a99a;
+            --text-muted: #6b5e52;
+            --accent-gold: #c9a96e;
+            --accent-gold-light: #e8d5a8;
+            --accent-rose: #c4727f;
+            --border-subtle: rgba(201, 169, 110, 0.15);
+            --border-gold: rgba(201, 169, 110, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .side-nav {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+
+        .side-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .side-nav a .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            transition: all 0.4s ease;
+        }
+
+        .side-nav a:hover,
+        .side-nav a.active {
+            color: var(--accent-gold);
+        }
+
+        .side-nav a:hover .dot,
+        .side-nav a.active .dot {
+            background: var(--accent-gold);
+            box-shadow: 0 0 12px var(--accent-gold);
+            transform: scale(1.5);
+        }
+
+        .side-nav .nav-label {
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+        }
+
+        .side-nav a:hover .nav-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(201, 169, 110, 0.03) 0%, transparent 70%);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--bg-primary), transparent);
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.3s forwards;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 200;
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.6s forwards;
+        }
+
+        .hero-title span {
+            display: block;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        .hero-line {
+            width: 60px;
+            height: 1px;
+            background: var(--accent-gold);
+            margin: 2rem auto;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.9s forwards;
+        }
+
+        .hero-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeUp 1s ease 1.2s forwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeUp 1s ease 1.5s forwards;
+        }
+
+        .scroll-indicator span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .scroll-indicator .line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--accent-gold), transparent);
+            animation: scrollPulse 2s ease infinite;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            margin-bottom: 3rem;
+            line-height: 1.3;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--accent-gold);
+            margin-top: 1.5rem;
+        }
+
+        /* ===== CHAPTER DIVIDER ===== */
+        .chapter-divider {
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            max-width: 100%;
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .chapter-divider .chapter-num {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 400;
+            color: var(--accent-gold);
+            opacity: 0.2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .chapter-divider .chapter-title {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chapter-divider .chapter-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== PERSONA CARDS ===== */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .persona-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .persona-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .persona-card:hover::before {
+            opacity: 1;
+        }
+
+        .persona-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-4px);
+        }
+
+        .persona-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            color: var(--accent-gold-light);
+        }
+
+        .persona-card p {
+            font-size: 0.85rem;
+            line-height: 2;
+            color: var(--text-secondary);
+        }
+
+        /* ===== CONTENT DIRECTION ===== */
+        .content-block {
+            margin-bottom: 4rem;
+            padding: 3rem;
+            border-left: 2px solid var(--accent-gold);
+            background: linear-gradient(90deg, rgba(201, 169, 110, 0.03), transparent);
+        }
+
+        .content-block h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-block .percentage {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content-block ul li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .content-block ul li::before {
+            content: '·';
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .content-block ul li strong {
+            color: var(--text-primary);
+            font-weight: 500;
+            min-width: 5em;
+        }
+
+        /* ===== TABLE SECTION ===== */
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 3rem;
+        }
+
+        .luxury-table thead th {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            padding: 1.5rem 1.5rem;
+            border-bottom: 1px solid var(--border-gold);
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .luxury-table tbody td {
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            vertical-align: top;
+            line-height: 1.8;
+        }
+
+        .luxury-table tbody tr:hover {
+            background: rgba(201, 169, 110, 0.03);
+        }
+
+        .luxury-table .module-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .luxury-table .module-purpose {
+            color: var(--accent-gold-light);
+            font-weight: 400;
+        }
+
+        /* ===== QUOTE BLOCK ===== */
+        .quote-block {
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .quote-block::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            color: var(--accent-gold);
+            opacity: 0.1;
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .quote-block p {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 300;
+            line-height: 2;
+            letter-spacing: 0.05em;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 6rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .side-nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: flex !important;
+            }
+
+            section {
+                padding: 5rem 1.5rem;
+            }
+
+            .persona-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .persona-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .content-block {
+                padding: 2rem 1.5rem;
+            }
+
+            .luxury-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .luxury-table thead th,
+            .luxury-table tbody td {
+                padding: 1rem;
+                min-width: 120px;
+            }
+
+            .chapter-divider {
+                height: 40vh;
+                min-height: 300px;
+            }
+        }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border-subtle);
+            padding: 0.75rem 1rem;
+            z-index: 1000;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            text-align: center;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a.active {
+            color: var(--accent-gold);
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-rose));
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* ===== DECORATIVE ELEMENTS ===== */
+        .deco-line {
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, var(--accent-gold), transparent);
+            margin: 0 auto;
+        }
+
+        .deco-diamond {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-gold);
+            transform: rotate(45deg);
+            margin: 2rem auto;
+            opacity: 0.5;
+        }
+
+        /* ===== STATS ROW ===== */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .stat-item .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .stat-item .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.2em;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .stats-row {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* ===== SERIES LIST ===== */
+        .series-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .series-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            padding: 1.2rem 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .series-item:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold-light);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Side Navigation (Desktop) -->
+<nav class="side-nav" id="sideNav">
+    <a href="#hero"><span class="nav-label">首页</span><span class="dot"></span></a>
+    <a href="#persona"><span class="nav-label">人设</span><span class="dot"></span></a>
+    <a href="#content"><span class="nav-label">内容</span><span class="dot"></span></a>
+    <a href="#modules"><span class="nav-label">模块</span><span class="dot"></span></a>
+    <a href="#ending"><span class="nav-label">愿景</span><span class="dot"></span></a>
+</nav>
+
+<!-- Mobile Navigation -->
+<nav class="mobile-nav">
+    <a href="#hero">首页</a>
+    <a href="#persona">人设</a>
+    <a href="#content">内容</a>
+    <a href="#modules">模块</a>
+    <a href="#ending">愿景</a>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="hero">
+    <p class="hero-subtitle">Social Media Strategy · 2025</p>
+    <h1 class="hero-title">
+        张歆艺
+        <span>账号战略规划</span>
+    </h1>
+    <div class="hero-line"></div>
+    <p class="hero-desc">真实 · 温度 · 共鸣</p>
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="line"></div>
+    </div>
+</header>
+
+<!-- ===== CHAPTER 1: PERSONA ===== -->
+<div class="chapter-divider" id="persona">
+    <span class="chapter-num">I</span>
+    <h2 class="chapter-title">人设标签</h2>
+    <p class="chapter-subtitle">Persona & Positioning</p>
+</div>
+
+<section>
+    <p class="section-label">Chapter One</p>
+    <h2 class="section-title">三大核心人设</h2>
+
+    <div class="persona-grid">
+        <div class="persona-card">
+            <h3>真实接地气</h3>
+            <p>明星真实的一面，有大家想象的明星高级感，也有寻常人家都有的烦恼/吃喝拉撒</p>
+        </div>
+        <div class="persona-card">
+            <h3>手把手实操</h3>
+            <p>带着大家实操带娃中的各种问题（可以请各行业专家），同时带着大家一起始终美丽；亲密关系中会遇到的问题，也摊开来解决</p>
+        </div>
+        <div class="persona-card">
+            <h3>共情不完美</h3>
+            <p>妈妈在家庭中的压力是非常大的，要处理亲子/夫妻/婆媳等各种关系，容易有情绪的问题，我能共情你们的不完美，因为我也是你们中的一员</p>
+        </div>
+    </div>
+</section>
+
+<section class="quote-block">
+    <p>我能共情你们的不完美，<br>因为我也是你们中的一员。</p>
+</section>
+
+<!-- ===== CHAPTER 2: CONTENT ===== -->
+<div class="chapter-divider" id="content">
+    <span class="chapter-num">II</span>
+    <h2 class="chapter-title">内容方向</h2>
+    <p class="chapter-subtitle">Content Strategy</p>
+</div>
+
+<section>
+    <p class="section-label">Chapter Two</p>
+    <h2 class="section-title">内容矩阵布局</h2>
+
+    <div class="stats-row">
+        <div class="stat-item">
+            <div class="stat-number">50%+</div>
+            <div class="stat-label">母婴内容</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">20%+</div>
+            <div class="stat-label">家庭内容</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">10-20%</div>
+            <div class="stat-label">明星内容</div>
+        </div>
+    </div>
+
+    <div class="deco-diamond"></div>
+
+    <!-- 母婴内容 -->
+    <div class="content-block">
+        <div class="percentage">50%+</div>
+        <h3>母婴内容</h3>
+        <ul>
+            <li><strong>产品实测</strong>不管是婴幼儿产品/美妆护肤品/玩具/学习机等，都坚持实测，推荐自用</li>
+            <li><strong>育儿科普</strong>联合儿科医生/营养师/高价月嫂做短视频内容，手把手教学</li>
+            <li><strong>成长日记</strong>记录孩子的成长，辅食制作，亲子共读等</li>
+            <li><strong>宝妈真心话</strong>产后情绪，带娃压力，代际矛盾，强调共鸣，共情每个家庭的不完美</li>
+        </ul>
+    </div>
+
+    <!-- 家庭内容 -->
+    <div class="content-block">
+        <div class="percentage">20%+</div>
+        <h3>家庭内容</h3>
+        <ul>
+            <li><strong>日常生活</strong>一起带娃/做饭/旅行</li>
+            <li><strong>互动方式</strong>厨房聊天，睡前沟通，未来规划</li>
+            <li><strong>10周年庆</strong>可以作为全年的一个highlight来做个几集内容</li>
+        </ul>
+    </div>
+
+    <!-- 明星内容 -->
+    <div class="content-block">
+        <div class="percentage">10-20%</div>
+        <h3>明星内容</h3>
+        <ul>
+            <li><strong>活人感</strong>明星才会经历的人和事，带大家体验明星的活人感</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== CHAPTER 3: MODULES ===== -->
+<div class="chapter-divider" id="modules">
+    <span class="chapter-num">III</span>
+    <h2 class="chapter-title">核心模块</h2>
+    <p class="chapter-subtitle">Core Modules & IP</p>
+</div>
+
+<section>
+    <p class="section-label">Chapter Three</p>
+    <h2 class="section-title">内容产品矩阵</h2>
+
+    <table class="luxury-table">
+        <thead>
+            <tr>
+                <th>核心模块</th>
+                <th>目的</th>
+                <th>内容形式</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="module-name">【大综艺项目】</span></td>
+                <td><span class="module-purpose">10年婚姻大IP</span></td>
+                <td>《十年·同行》，围绕10年相遇，内容可具体再策划；可以每次邀请粉丝/明星嘉宾，带着自己的10年故事；年度收官+线下直播，嘉宾登台</td>
+            </tr>
+            <tr>
+                <td><span class="module-name">【系列项目】</span></td>
+                <td><span class="module-purpose">科普向增加信任感<br>《张歆艺花钱请专家》</span></td>
+                <td>《备孕日记》《开学季》《宝妈焕新季》《暑假亲子行》《秋冬孕养日记》《双十一宝妈攻略》《年度好用物盘点》……</td>
+            </tr>
+            <tr>
+                <td><span class="module-name">【日常内容】</span></td>
+                <td><span class="module-purpose">日常向增加共情感<br>《共情不完美》</span></td>
+                <td>热点视频、日常唠嗑、节日氛围、日常出游……</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="deco-line" style="margin-top: 4rem;"></div>
+</section>
+
+<section>
+    <p class="section-label">Series Projects</p>
+    <h2 class="section-title">系列项目一览</h2>
+
+    <div class="series-list">
+        <div class="series-item">《备孕日记》</div>
+        <div class="series-item">《开学季》</div>
+        <div class="series-item">《宝妈焕新季》</div>
+        <div class="series-item">《暑假亲子行》</div>
+        <div class="series-item">《秋冬孕养日记》</div>
+        <div class="series-item">《双十一宝妈攻略》</div>
+        <div class="series-item">《年度好用物盘点》</div>
+        <div class="series-item">《十年·同行》</div>
+    </div>
+</section>
+
+<!-- ===== ENDING ===== -->
+<section class="quote-block" id="ending">
+    <p>真实、温度、共鸣<br><br>让每一个不完美的妈妈，<br>都能在这里找到自己。</p>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="deco-diamond"></div>
+    <p>Zhang Xinyi · Social Media Strategy 2025</p>
+    <p style="margin-top: 0.5rem; opacity: 0.5;">Confidential · For Internal Review Only</p>
+</footer>
+
+<script>
+    // Progress Bar
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        document.getElementById('progressBar').style.width = progress + '%';
+    });
+
+    // Scroll Reveal
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Active Nav
+    const navLinks = document.querySelectorAll('.side-nav a, .mobile-nav a');
+    const navSections = document.querySelectorAll('[id]');
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + entry.target.id) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+
+    navSections.forEach(section => navObserver.observe(section));
+
+    // Smooth scroll for nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
