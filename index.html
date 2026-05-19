@@ -688,78 +688,45 @@
         /* ===== FILMOGRAPHY SHOWCASE ===== */
         .filmography-showcase {
             background: var(--morandi-nude);
-            padding: 3rem 2rem 6rem;
+            padding: 0;
+            overflow: hidden;
         }
-        .film-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
+        .film-strip {
+            display: flex;
+            width: 100%;
             opacity: 0;
-            transform: translateY(25px);
+            transform: translateY(20px);
             transition: all 0.8s ease 0.2s;
         }
-        .film-grid.visible {
+        .film-strip.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .film-card {
+        .film-strip-item {
+            flex: 1;
+            min-width: 0;
+            height: 320px;
+            overflow: hidden;
             position: relative;
-            overflow: hidden;
-            border-radius: 4px;
-            background: var(--bg-main);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        .film-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        .film-strip-item:hover {
+            flex: 1.8;
         }
-        .film-img-wrap {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-        }
-        .film-img-wrap img {
+        .film-strip-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
-            filter: grayscale(10%);
+            filter: grayscale(20%) brightness(0.95);
+            transition: all 0.6s ease;
         }
-        .film-card:hover .film-img-wrap img {
-            transform: scale(1.05);
-            filter: grayscale(0%);
-        }
-        .film-info {
-            padding: 1.2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-        .film-title {
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            color: var(--text-primary);
-        }
-        .film-role {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-weight: 300;
-            letter-spacing: 0.05em;
-        }
-        .film-score {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            margin-top: 0.3rem;
-            font-weight: 500;
+        .film-strip-item:hover img {
+            filter: grayscale(0%) brightness(1);
+            transform: scale(1.03);
         }
         @media (max-width: 768px) {
-            .film-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-            .film-img-wrap { height: 160px; }
+            .film-strip { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .film-strip-item { min-width: 140px; flex: none; width: 140px; height: 200px; }
         }
 
         /* ===== ACCORDION MODULES ===== */
@@ -997,47 +964,14 @@
 </section>
 <!-- FILMOGRAPHY SHOWCASE -->
 <section class="filmography-showcase">
-    <div class="film-grid" data-reveal>
-        <div class="film-card">
-            <div class="film-img-wrap">
-                <img src="images/beijing_linxia.jpg" alt="北京爱情故事 · 林夏" loading="lazy">
-            </div>
-            <div class="film-info">
-                <span class="film-title">《北京爱情故事》</span>
-                <span class="film-role">饰 林夏</span>
-                <span class="film-score">豆瓣 7.9</span>
-            </div>
-        </div>
-        <div class="film-card">
-            <div class="film-img-wrap">
-                <img src="images/laojiu_grey.jpg" alt="老舅 · 崔小红" loading="lazy">
-            </div>
-            <div class="film-info">
-                <span class="film-title">《老舅》</span>
-                <span class="film-role">饰 崔小红</span>
-                <span class="film-score">豆瓣 7.0</span>
-            </div>
-        </div>
-        <div class="film-card">
-            <div class="film-img-wrap">
-                <img src="images/zhengdang_leishuang.jpg" alt="正当防卫 · 雷爽" loading="lazy">
-            </div>
-            <div class="film-info">
-                <span class="film-title">《正当防卫》</span>
-                <span class="film-role">饰 雷爽</span>
-                <span class="film-score">豆瓣 6.1</span>
-            </div>
-        </div>
-        <div class="film-card">
-            <div class="film-img-wrap">
-                <img src="images/laojiu_red.jpg" alt="老舅 · 崔小红（年轻）" loading="lazy">
-            </div>
-            <div class="film-info">
-                <span class="film-title">《老舅》</span>
-                <span class="film-role">崔小红 · 年轻时期</span>
-                <span class="film-score">天生丽质</span>
-            </div>
-        </div>
+    <div class="film-strip" data-reveal>
+        <div class="film-strip-item"><img src="images/beijing_linxia.jpg" alt="" loading="lazy"></div>
+        <div class="film-strip-item"><img src="images/fengshen_role.jpg" alt="" loading="lazy"></div>
+        <div class="film-strip-item"><img src="images/laojiu_grey.jpg" alt="" loading="lazy"></div>
+        <div class="film-strip-item"><img src="images/pifu_role.jpg" alt="" loading="lazy"></div>
+        <div class="film-strip-item"><img src="images/zhengdang_leishuang.jpg" alt="" loading="lazy"></div>
+        <div class="film-strip-item"><img src="images/xinshangmen_role.jpg" alt="" loading="lazy"></div>
+        <div class="film-strip-item"><img src="images/paofu_role.jpg" alt="" loading="lazy"></div>
     </div>
 </section>
 
