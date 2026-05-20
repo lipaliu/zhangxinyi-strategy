@@ -177,28 +177,68 @@
         .concept-morandi-2 { background: var(--bg-main); }
         .concept-morandi-3 { background: var(--bg-dark); color: var(--text-light); }
         .concept-morandi-4 { background: linear-gradient(135deg, var(--morandi-blush), var(--morandi-cream)); }
-        /* Background image sections */
-        .concept-bg {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        /* Gradient background sections */
+        .concept-grad-1 { background: linear-gradient(160deg, #e8d5d0 0%, #f5f0eb 50%, #d9cec5 100%); }
+        .concept-grad-2 { background: linear-gradient(160deg, #f5f0eb 0%, #e5dcd5 50%, #c9b8c5 100%); }
+        .concept-grad-3 { background: linear-gradient(160deg, #3d3530 0%, #2a2420 100%); color: var(--text-light); }
+        .concept-grad-4 { background: linear-gradient(160deg, #c5cfc0 0%, #e5dcd5 50%, #f5f0eb 100%); }
+        .concept-grad-5 { background: linear-gradient(160deg, #d4b5b0 0%, #e8d5d0 50%, #f5f0eb 100%); }
+        .concept-grad-6 { background: linear-gradient(160deg, #b8c5cc 0%, #e5dcd5 50%, #f5f0eb 100%); }
+        .concept-grad-3 .concept-big em { color: var(--morandi-pink); }
+        .concept-grad-3 .concept-sub { color: rgba(255,255,255,0.6); }
+        .concept-grad-3 .concept-tag { color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.15); }
+        /* Magazine editorial image layouts */
+        .editorial-magazine {
+            padding: 5rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .editorial-magazine.layout-left {
+            grid-template-columns: 1fr 1.2fr;
+        }
+        .editorial-magazine.layout-right {
+            grid-template-columns: 1.2fr 1fr;
+        }
+        .editorial-magazine.layout-overlap {
+            grid-template-columns: 1.4fr 1fr;
             position: relative;
         }
-        .concept-bg::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.45);
-            z-index: 0;
+        .editorial-magazine.layout-full {
+            grid-template-columns: 1fr;
+            text-align: center;
         }
-        .concept-bg .concept-inner {
-            position: relative;
-            z-index: 1;
+        .editorial-magazine.layout-trio {
+            grid-template-columns: 1fr 1.5fr 1fr;
+            align-items: end;
         }
-        .concept-bg .concept-big { color: #fff; }
-        .concept-bg .concept-big em { color: var(--morandi-pink); }
-        .concept-bg .concept-sub { color: rgba(255,255,255,0.7); }
-        .concept-bg .concept-tag { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.2); }
+        .editorial-magazine img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 2px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+        }
+        .editorial-magazine .img-large {
+            max-width: 100%;
+        }
+        .editorial-magazine .img-small {
+            max-width: 75%;
+            margin: 0 auto;
+        }
+        .editorial-magazine .img-offset-up {
+            transform: translateY(-2rem);
+        }
+        .editorial-magazine .img-offset-down {
+            transform: translateY(2rem);
+        }
+        @media (max-width: 768px) {
+            .editorial-magazine { grid-template-columns: 1fr !important; padding: 3rem 1.5rem; }
+            .editorial-magazine .img-offset-up,
+            .editorial-magazine .img-offset-down { transform: none; }
+        }
         .concept-inner {
             text-align: center;
             max-width: 750px;
@@ -908,12 +948,14 @@
     <p class="hero-scroll">Scroll to explore</p>
 </section>
 <!-- IDENTITY: 演员身份 -->
-<section class="concept concept-bg" style="background-image: url('images/hero_bg.png');">
-    <div class="concept-inner" data-reveal>
-        <p class="concept-big">首先，你是一个<em>演员</em></p>
-        <p class="concept-sub">能抗剧，有作品，有观众缘。<br>从《北京爱情故事》到荧幕上的每一个角色——<br>你的底气，来自于你的实力。</p>
-        <img src="images/weibo_flowers_web.jpg" alt="" style="width:280px; max-width:60%; margin-top:2.5rem; border-radius:4px; opacity:0.9;">
-        <p class="concept-tag">Actress · Storyteller · Icon</p>
+<section class="concept concept-grad-1">
+    <div class="editorial-magazine layout-right" data-reveal>
+        <div class="concept-inner" style="text-align:left;">
+            <p class="concept-big">首先，你是一个<em>演员</em></p>
+            <p class="concept-sub">能抗剧，有作品，有观众缘。<br>从《北京爱情故事》到荧幕上的每一个角色——<br>你的底气，来自于你的实力。</p>
+            <p class="concept-tag">Actress · Storyteller · Icon</p>
+        </div>
+        <img src="images/weibo_flowers_web.jpg" alt="" class="img-large">
     </div>
 </section>
 <!-- FILMOGRAPHY SHOWCASE -->
@@ -929,43 +971,53 @@
     </div>
 </section>
 <!-- IDENTITY: 商业潜力 -->
-<section class="concept concept-bg" style="background-image: url('images/hero_bg.png');">
-    <div class="concept-inner" data-reveal>
-        <p class="concept-big">同时，你拥有<br><em>无限的内容商业潜力</em></p>
-        <p class="concept-sub">因为最好的商业，是做自己。</p>
-        <img src="images/elle_couple.jpg" alt="" style="width:500px; max-width:80%; margin-top:2.5rem; border-radius:4px; opacity:0.9;">
+<section class="concept concept-grad-2">
+    <div class="editorial-magazine layout-left" data-reveal>
+        <img src="images/elle_couple.jpg" alt="" class="img-large">
+        <div class="concept-inner" style="text-align:left;">
+            <p class="concept-big">同时，你拥有<br><em>无限的内容商业潜力</em></p>
+            <p class="concept-sub">因为最好的商业，是做自己。</p>
+        </div>
     </div>
 </section>
 <!-- CONCEPT: 不是降维 -->
-<section class="concept concept-bg" style="background-image: url('images/hero_bg.png');">
-    <div class="concept-inner" data-reveal>
-        <p class="concept-big">这不是降维<br>这是<em>与时俱进</em></p>
-        <p class="concept-sub">当一个好演员愿意走进千万个家庭的日常，那是一种<strong style="color: var(--morandi-pink);">格局</strong>。</p>
-        <img src="images/cosmo_station.jpg" alt="" style="width:500px; max-width:80%; margin-top:2.5rem; border-radius:4px; opacity:0.9;">
+<section class="concept concept-grad-3">
+    <div class="editorial-magazine layout-right" data-reveal>
+        <div class="concept-inner" style="text-align:left;">
+            <p class="concept-big" style="color:#fff;">这不是降维<br>这是<em>与时俱进</em></p>
+            <p class="concept-sub" style="color:rgba(255,255,255,0.6);">当一个好演员愿意走进千万个家庭的日常，那是一种<strong style="color: var(--morandi-pink);">格局</strong>。</p>
+        </div>
+        <img src="images/cosmo_station.jpg" alt="" class="img-large">
     </div>
 </section>
 <!-- CONCEPT: 真实 -->
-<section class="concept concept-bg" style="background-image: url('images/hero_bg.png');">
-    <div class="concept-inner" data-reveal>
-        <p class="concept-big">每个女人都有一千种面孔<br>但只有<em>一种真实</em></p>
-        <img src="images/cosmo_street.jpg" alt="" style="width:500px; max-width:80%; margin-top:2.5rem; border-radius:4px; opacity:0.9;">
-        <p class="concept-tag">The Power of Authenticity</p>
+<section class="concept concept-grad-4">
+    <div class="editorial-magazine layout-left" data-reveal>
+        <img src="images/cosmo_street.jpg" alt="" class="img-large">
+        <div class="concept-inner" style="text-align:left;">
+            <p class="concept-big">每个女人都有一千种面孔<br>但只有<em>一种真实</em></p>
+            <p class="concept-tag">The Power of Authenticity</p>
+        </div>
     </div>
 </section>
 <!-- CONCEPT: 不完美 -->
-<section class="concept concept-bg" style="background-image: url('images/hero_bg.png');">
-    <div class="concept-inner" data-reveal>
-        <p class="concept-big">不完美<br>才是最高级的<em>真实</em></p>
-        <p class="concept-sub">你不需要成为另一个人，<br>你只需要成为她们心中的那个你。</p>
-        <img src="images/elle_wedding.jpg" alt="" style="width:500px; max-width:80%; margin-top:2.5rem; border-radius:4px; opacity:0.9;">
+<section class="concept concept-grad-5">
+    <div class="editorial-magazine layout-right" data-reveal>
+        <div class="concept-inner" style="text-align:left;">
+            <p class="concept-big">不完美<br>才是最高级的<em>真实</em></p>
+            <p class="concept-sub">你不需要成为另一个人，<br>你只需要成为她们心中的那个你。</p>
+        </div>
+        <img src="images/elle_wedding.jpg" alt="" class="img-large">
     </div>
 </section>
 <!-- CONCEPT: 过渡 -->
-<section class="concept concept-bg" style="background-image: url('images/hero_bg.png');">
-    <div class="concept-inner" data-reveal>
-        <p class="concept-big">接下来的一切<br>都是为了让这份真实<br><em>被更多人看见</em></p>
-        <img src="images/sunshine_smile.jpg" alt="" style="width:280px; max-width:60%; margin-top:2.5rem; border-radius:50%; opacity:0.9;">
-        <p class="concept-tag">The Strategy Begins Here</p>
+<section class="concept concept-grad-6">
+    <div class="editorial-magazine layout-left" data-reveal>
+        <img src="images/sunshine_smile.jpg" alt="" class="img-small" style="border-radius:50%;">
+        <div class="concept-inner" style="text-align:left;">
+            <p class="concept-big">接下来的一切<br>都是为了让这份真实<br><em>被更多人看见</em></p>
+            <p class="concept-tag">The Strategy Begins Here</p>
+        </div>
     </div>
 </section>
 <!-- CHAPTER I: 人设 -->
@@ -995,11 +1047,11 @@
 </div>
 
 <!-- QUOTE -->
-<div class="quote-block" style="background-image: url('images/hero_bg.png'); background-size: cover; background-position: center; position: relative;">
+<div class="quote-block" style="background: linear-gradient(160deg, #3d3530, #2a2420);">
     <p class="quote-text">我能共情你们的不完美，<br>因为我也是你们中的一员。</p>
 </div>
 <!-- STATS -->
-<div class="stats-bar" style="background-image: url('images/hero_bg.png'); background-size: cover; background-position: center;">
+<div class="stats-bar" style="background: linear-gradient(160deg, #2a2420, #3d3530);">
     <div class="stats-inner">
         <div class="stat-item">
             <div class="stat-num">50%+</div>
@@ -1055,74 +1107,72 @@
         </div>
     </div>
 </div>
-<!-- MODULES -->
-<section class="module-section" id="modules" style="background-image: url('images/hero_bg.png'); background-size: cover; background-position: center; position: relative;">
-    <div class="module-inner">
+
+<!-- MODULES: 核心模块 -->
+<section id="modules">
+    <div class="section" style="padding-bottom:3rem;">
         <div class="section-header" data-reveal>
             <p class="section-chapter">Chapter III</p>
             <h2 class="section-title">核心模块</h2>
             <p class="section-desc">三个层级，构建完整的内容生态</p>
         </div>
-        <div class="accordion-card" data-reveal>
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <div class="mc-name">大综艺项目</div>
-                <div class="mc-purpose">10年婚姻大IP · 《十年·同行》</div>
-                <span class="accordion-icon">+</span>
-            </div>
-            <div class="accordion-body">
-                <div class="accordion-content">
-                    <p>围绕"十年相遇"这个时间锚点，每期邀请一组嘉宾（粉丝/明星/素人），分享他们各自的"十年故事"。</p>
-                    <p><strong>核心概念：</strong>张歆艺不是主持人，是一个同样走过十年的人，在和另一个走过十年的人聊天。</p>
-                    <div class="accordion-episodes">
-                        <span class="acc-ep">01 十年前的那封信</span>
-                        <span class="acc-ep">02 差点分开的那一天</span>
-                        <span class="acc-ep">03 孩子改变了什么</span>
-                        <span class="acc-ep">04 下一个十年</span>
-                    </div>
-                    <p class="accordion-highlight">年度收官：线下直播 + 嘉宾登台，全年参与者回到同一个舞台。</p>
-                    <p class="accordion-brand">品牌适配：婚庆品牌、珠宝品牌、家居品牌、亲子品牌</p>
+    </div>
+    <!-- MODULE 1: 大综艺项目 -->
+    <div class="concept concept-grad-5" style="min-height:auto; padding:6rem 2rem;">
+        <div class="editorial-magazine layout-left" data-reveal>
+            <img src="images/elle_wedding.jpg" alt="" class="img-large">
+            <div style="text-align:left;">
+                <p class="section-chapter">大综艺项目</p>
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:300; margin-bottom:1.5rem;">10年婚姻大IP · 《十年·同行》</h3>
+                <p style="font-size:0.85rem; line-height:2.2; color:var(--text-secondary); font-weight:300;">围绕“十年相遇”这个时间锚点，每期邀请一组嘉宾（粉丝/明星/素人），分享他们各自的“十年故事”。</p>
+                <p style="font-size:0.85rem; line-height:2.2; color:var(--text-secondary); font-weight:300; margin-top:1rem;"><strong>核心概念：</strong>张歆艺不是主持人，是一个同样走过十年的人，在和另一个走过十年的人聊天。</p>
+                <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1.5rem;">
+                    <span class="acc-ep">01 十年前的那封信</span>
+                    <span class="acc-ep">02 差点分开的那一天</span>
+                    <span class="acc-ep">03 孩子改变了什么</span>
+                    <span class="acc-ep">04 下一个十年</span>
                 </div>
+                <p style="font-size:0.82rem; color:var(--accent); font-style:italic; margin-top:1.5rem;">年度收官：线下直播 + 嘉宾登台，全年参与者回到同一个舞台。</p>
+                <p style="font-family:'Inter',sans-serif; font-size:0.7rem; letter-spacing:0.1em; color:var(--text-muted); margin-top:0.8rem;">品牌适配：婚庆品牌、珠宝品牌、家居品牌、亲子品牌</p>
             </div>
         </div>
-        <div class="accordion-card" data-reveal>
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <div class="mc-name">系列项目</div>
-                <div class="mc-purpose">科普向增加信任感 · 《张歆艺花钱请专家》</div>
-                <span class="accordion-icon">+</span>
-            </div>
-            <div class="accordion-body">
-                <div class="accordion-content">
-                    <p>联合各领域专家，用真实经历+科学知识，给妈妈们最温暖的陪伴和最专业的建议。</p>
-                    <div class="accordion-series-list">
-                        <div class="acc-series-item"><strong>《备孕日记》</strong><span>每一个新生命的到来，都值得被认真准备。</span></div>
-                        <div class="acc-series-item"><strong>《开学季》</strong><span>每一次开学，都是妈妈和孩子的共同成长。</span></div>
-                        <div class="acc-series-item"><strong>《宝妈焕新季》</strong><span>成为妈妈之后，你依然值得被宠爱。</span></div>
-                        <div class="acc-series-item"><strong>《暑假亲子行》</strong><span>最好的教育，是带孩子去看世界。</span></div>
-                        <div class="acc-series-item"><strong>《秋冬孕养日记》</strong><span>换季时节，守护妈妈和宝宝的每一天。</span></div>
-                        <div class="acc-series-item"><strong>《双十一宝妈攻略》</strong><span>不是教你花钱，是帮你省钱。</span></div>
-                        <div class="acc-series-item"><strong>《年度好用物盘点》</strong><span>一整年用下来，只推荐真正好用的。</span></div>
-                    </div>
+    </div>
+    <!-- MODULE 2: 系列项目 -->
+    <div class="concept concept-grad-1" style="min-height:auto; padding:6rem 2rem;">
+        <div class="editorial-magazine layout-right" data-reveal>
+            <div style="text-align:left;">
+                <p class="section-chapter">系列项目</p>
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:300; margin-bottom:1.5rem;">科普向增加信任感 · 《张歆艺花钱请专家》</h3>
+                <p style="font-size:0.85rem; line-height:2.2; color:var(--text-secondary); font-weight:300;">联合各领域专家，用真实经历+科学知识，给妈妈们最温暖的陪伴和最专业的建议。</p>
+                <div style="margin-top:1.5rem; display:grid; gap:0.8rem;">
+                    <p style="font-size:0.82rem; line-height:2; color:var(--text-secondary);"><strong>《备孕日记》</strong> 每一个新生命的到来，都值得被认真准备。</p>
+                    <p style="font-size:0.82rem; line-height:2; color:var(--text-secondary);"><strong>《开学季》</strong> 每一次开学，都是妈妈和孩子的共同成长。</p>
+                    <p style="font-size:0.82rem; line-height:2; color:var(--text-secondary);"><strong>《宝妈焕新季》</strong> 成为妈妈之后，你依然值得被宠爱。</p>
+                    <p style="font-size:0.82rem; line-height:2; color:var(--text-secondary);"><strong>《暑假亲子行》</strong> 最好的教育，是带孩子去看世界。</p>
+                    <p style="font-size:0.82rem; line-height:2; color:var(--text-secondary);"><strong>《秋冬孕养日记》</strong> 换季时节，守护妈妈和宝宝的每一天。</p>
+                    <p style="font-size:0.82rem; line-height:2; color:var(--text-secondary);"><strong>《双十一宝妈攻略》</strong> 不是教你花钱，是帮你省钱。</p>
+                    <p style="font-size:0.82rem; line-height:2; color:var(--text-secondary);"><strong>《年度好用物盘点》</strong> 一整年用下来，只推荐真正好用的。</p>
                 </div>
             </div>
+            <img src="images/casual_bench_web.jpg" alt="" class="img-large">
         </div>
-        <div class="accordion-card" data-reveal>
-            <div class="accordion-header" onclick="toggleAccordion(this)">
-                <div class="mc-name">日常内容</div>
-                <div class="mc-purpose">日常向增加共情感 · 《共情不完美》</div>
-                <span class="accordion-icon">+</span>
-            </div>
-            <div class="accordion-body">
-                <div class="accordion-content">
-                    <p>完美是一种压力，不完美才是一种释放。不是来教你怎么做妈妈的，是来告诉你——你已经做得很好了。</p>
-                    <div class="accordion-episodes">
-                        <span class="acc-ep">热点视频 · 真实观点</span>
-                        <span class="acc-ep">日常唠嗑 · 没有脚本</span>
-                        <span class="acc-ep">节日氛围 · 情感连接</span>
-                        <span class="acc-ep">日常出游 · 真实状态</span>
-                        <span class="acc-ep">深夜独白 · 说不出口的话</span>
-                    </div>
-                    <p>共情 = 粘性。当一个明星愿意展示自己的脆弱，粉丝的关系就从"仰望"变成了"陪伴"。</p>
+    </div>
+    <!-- MODULE 3: 日常内容 -->
+    <div class="concept concept-grad-6" style="min-height:auto; padding:6rem 2rem;">
+        <div class="editorial-magazine layout-left" data-reveal>
+            <img src="images/weibo_photo1_web.jpg" alt="" class="img-large">
+            <div style="text-align:left;">
+                <p class="section-chapter">日常内容</p>
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:300; margin-bottom:1.5rem;">日常向增加共情感 · 《共情不完美》</h3>
+                <p style="font-size:0.85rem; line-height:2.2; color:var(--text-secondary); font-weight:300;">完美是一种压力，不完美才是一种释放。不是来教你怎么做妈妈的，是来告诉你——你已经做得很好了。</p>
+                <div style="display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1.5rem;">
+                    <span class="acc-ep">热点视频 · 真实观点</span>
+                    <span class="acc-ep">日常唆嗑 · 没有脚本</span>
+                    <span class="acc-ep">节日氛围 · 情感连接</span>
+                    <span class="acc-ep">日常出游 · 真实状态</span>
+                    <span class="acc-ep">深夜独白 · 说不出口的话</span>
                 </div>
+                <p style="font-size:0.85rem; line-height:2.2; color:var(--text-secondary); font-weight:300; margin-top:1.5rem;">共情 = 粘性。当一个明星愿意展示自己的脆弱，粉丝的关系就从“仰望”变成了“陪伴”。</p>
             </div>
         </div>
     </div>
