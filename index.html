@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Serif+SC:wght@200;300;400;500;600;700&family=Inter:wght@100;200;300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* 莫兰迪色系 */
             --morandi-pink: #d4b5b0;
             --morandi-blush: #e8d5d0;
             --morandi-nude: #e5dcd5;
@@ -20,25 +19,19 @@
             --morandi-taupe: #b5a99a;
             --morandi-warm: #d9cec5;
             --morandi-deep: #8b7d74;
-
             --bg-main: #faf8f5;
             --bg-section: #f2ede8;
             --bg-dark: #3d3530;
             --bg-darker: #2a2420;
-
             --text-primary: #2a2420;
             --text-secondary: #6b5e56;
             --text-muted: #9b8e85;
             --text-light: #f5f0eb;
-
             --accent: #c4727f;
             --accent-soft: #d4a5a5;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Noto Serif SC', serif;
             background: var(--bg-main);
@@ -46,7 +39,6 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-
         /* ===== PROGRESS BAR ===== */
         .progress {
             position: fixed;
@@ -57,7 +49,6 @@
             z-index: 10000;
             transition: width 0.05s linear;
         }
-
         /* ===== NAV ===== */
         .nav {
             position: fixed;
@@ -71,14 +62,12 @@
             align-items: center;
             transition: all 0.4s ease;
         }
-
         .nav.scrolled {
             background: rgba(250, 248, 245, 0.95);
             backdrop-filter: blur(10px);
             padding: 1.2rem 3rem;
             box-shadow: 0 1px 0 rgba(0,0,0,0.04);
         }
-
         .nav-brand {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
@@ -86,13 +75,11 @@
             letter-spacing: 0.3em;
             color: var(--text-primary);
         }
-
         .nav-links {
             display: flex;
             gap: 2.5rem;
             list-style: none;
         }
-
         .nav-links a {
             font-family: 'Inter', sans-serif;
             font-size: 0.6rem;
@@ -102,9 +89,7 @@
             text-decoration: none;
             transition: color 0.3s;
         }
-
         .nav-links a:hover { color: var(--text-primary); }
-
         /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
@@ -117,7 +102,6 @@
             background: linear-gradient(180deg, var(--morandi-blush) 0%, var(--bg-main) 100%);
             position: relative;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -130,7 +114,6 @@
             opacity: 0.15;
             filter: blur(80px);
         }
-
         .hero::after {
             content: '';
             position: absolute;
@@ -143,7 +126,6 @@
             opacity: 0.12;
             filter: blur(60px);
         }
-
         .hero-label {
             font-family: 'Inter', sans-serif;
             font-size: 0.55rem;
@@ -154,28 +136,25 @@
             opacity: 0;
             animation: fadeUp 1s ease 0.3s forwards;
         }
-
         .hero-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(4rem, 10vw, 9rem);
+            font-size: clamp(3rem, 8vw, 7rem);
             font-weight: 300;
             letter-spacing: 0.05em;
-            line-height: 0.9;
+            line-height: 1.1;
             color: var(--text-primary);
             opacity: 0;
             animation: fadeUp 1s ease 0.6s forwards;
         }
-
         .hero-chinese {
             font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             font-weight: 200;
             letter-spacing: 0.8em;
             color: var(--text-secondary);
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             opacity: 0;
             animation: fadeUp 1s ease 0.9s forwards;
         }
-
         .hero-line {
             width: 1px;
             height: 60px;
@@ -184,7 +163,6 @@
             opacity: 0;
             animation: fadeUp 1s ease 1.2s forwards;
         }
-
         .hero-scroll {
             font-family: 'Inter', sans-serif;
             font-size: 0.5rem;
@@ -195,7 +173,10 @@
             opacity: 0;
             animation: fadeUp 1s ease 1.4s forwards;
         }
-
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         /* ===== CONCEPT SECTIONS ===== */
         .concept {
             min-height: 80vh;
@@ -205,24 +186,10 @@
             padding: 8rem 2rem;
             position: relative;
         }
-
-        .concept-morandi-1 {
-            background: var(--morandi-nude);
-        }
-
-        .concept-morandi-2 {
-            background: var(--bg-main);
-        }
-
-        .concept-morandi-3 {
-            background: var(--bg-dark);
-            color: var(--text-light);
-        }
-
-        .concept-morandi-4 {
-            background: linear-gradient(135deg, var(--morandi-blush), var(--morandi-cream));
-        }
-
+        .concept-morandi-1 { background: var(--morandi-nude); }
+        .concept-morandi-2 { background: var(--bg-main); }
+        .concept-morandi-3 { background: var(--bg-dark); color: var(--text-light); }
+        .concept-morandi-4 { background: linear-gradient(135deg, var(--morandi-blush), var(--morandi-cream)); }
         .concept-inner {
             text-align: center;
             max-width: 750px;
@@ -230,12 +197,7 @@
             transform: translateY(30px);
             transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-
-        .concept-inner.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        .concept-inner.visible { opacity: 1; transform: translateY(0); }
         .concept-big {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(2rem, 5vw, 4rem);
@@ -243,16 +205,8 @@
             line-height: 1.5;
             letter-spacing: 0.03em;
         }
-
-        .concept-big em {
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        .concept-morandi-3 .concept-big em {
-            color: var(--morandi-pink);
-        }
-
+        .concept-big em { font-style: italic; color: var(--accent); }
+        .concept-morandi-3 .concept-big em { color: var(--morandi-pink); }
         .concept-sub {
             font-size: clamp(0.85rem, 1.2vw, 1rem);
             font-weight: 300;
@@ -260,11 +214,7 @@
             margin-top: 2.5rem;
             color: var(--text-secondary);
         }
-
-        .concept-morandi-3 .concept-sub {
-            color: rgba(255,255,255,0.5);
-        }
-
+        .concept-morandi-3 .concept-sub { color: rgba(255,255,255,0.5); }
         .concept-tag {
             font-family: 'Inter', sans-serif;
             font-size: 0.5rem;
@@ -276,416 +226,8 @@
             padding: 0.8rem 2rem;
             border: 1px solid rgba(0,0,0,0.08);
         }
-
-        .concept-morandi-3 .concept-tag {
-            color: rgba(255,255,255,0.3);
-            border-color: rgba(255,255,255,0.1);
-        }
-
-        /* ===== DIVIDER ===== */
-        .divider {
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .divider-line {
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, transparent, var(--morandi-taupe), transparent);
-        }
-
-        /* ===== CONTENT SECTIONS ===== */
-        .section {
-            padding: 8rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 6rem;
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 0.8s ease;
-        }
-
-        .section-header.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-chapter {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.5rem;
-            letter-spacing: 0.6em;
-            text-transform: uppercase;
-            color: var(--accent-soft);
-            margin-bottom: 1.5rem;
-        }
-
-        .section-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 300;
-            letter-spacing: 0.08em;
-        }
-
-        .section-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            margin-top: 1rem;
-        }
-
-        /* ===== PERSONA CARDS ===== */
-        .persona-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            background: var(--morandi-warm);
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 0.8s ease 0.2s;
-        }
-
-        .persona-grid.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .persona-card {
-            background: var(--bg-main);
-            padding: 3.5rem 2.5rem;
-            transition: background 0.4s ease;
-        }
-
-        .persona-card:hover {
-            background: var(--morandi-cream);
-        }
-
-        .persona-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            font-weight: 300;
-            color: var(--morandi-pink);
-            line-height: 1;
-            margin-bottom: 2rem;
-        }
-
-        .persona-name {
-            font-size: 1.1rem;
-            font-weight: 500;
-            letter-spacing: 0.15em;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .persona-desc {
-            font-size: 0.82rem;
-            line-height: 2.2;
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-
-        /* ===== QUOTE BLOCK ===== */
-        .quote-block {
-            background: var(--morandi-nude);
-            padding: 6rem 2rem;
-            text-align: center;
-            margin: 4rem 0;
-            position: relative;
-        }
-
-        .quote-block::before {
-            content: '"';
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 8rem;
-            color: var(--morandi-pink);
-            opacity: 0.3;
-            position: absolute;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            line-height: 1;
-        }
-
-        .quote-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-            font-weight: 400;
-            font-style: italic;
-            line-height: 2;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        /* ===== STATS ===== */
-        .stats-bar {
-            background: var(--bg-dark);
-            padding: 5rem 2rem;
-        }
-
-        .stats-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 2rem;
-            border-right: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .stat-item:last-child { border-right: none; }
-
-        .stat-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 300;
-            color: var(--morandi-pink);
-        }
-
-        .stat-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.55rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
-            margin-top: 1rem;
-        }
-
-        /* ===== DIRECTION ===== */
-        .direction-group {
-            margin-bottom: 4rem;
-            padding-bottom: 4rem;
-            border-bottom: 1px solid var(--morandi-warm);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-        }
-
-        .direction-group.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .direction-group:last-child {
-            border-bottom: none;
-        }
-
-        .dir-header {
-            display: flex;
-            align-items: baseline;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .dir-pct {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
-            font-weight: 300;
-            color: var(--accent);
-        }
-
-        .dir-name {
-            font-size: 1rem;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-        }
-
-        .dir-items {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0;
-            margin-left: 0;
-        }
-
-        .dir-item {
-            display: grid;
-            grid-template-columns: 90px 1fr;
-            gap: 2rem;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.03);
-            font-size: 0.85rem;
-            line-height: 2;
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-
-        .dir-item strong {
-            font-weight: 500;
-            color: var(--text-primary);
-            font-size: 0.78rem;
-            letter-spacing: 0.05em;
-        }
-
-        /* ===== MODULES ===== */
-        .module-section {
-            background: var(--morandi-cream);
-            padding: 8rem 2rem;
-        }
-
-        .module-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .module-card {
-            background: var(--bg-main);
-            padding: 3rem 3.5rem;
-            margin-bottom: 1.5rem;
-            display: grid;
-            grid-template-columns: 140px 180px 1fr;
-            gap: 2.5rem;
-            align-items: start;
-            border-left: 3px solid var(--morandi-pink);
-            transition: all 0.3s ease;
-        }
-
-        .module-card:hover {
-            transform: translateX(4px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-        }
-
-        .mc-name {
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-        }
-
-        .mc-purpose {
-            font-size: 0.8rem;
-            color: var(--accent);
-            font-weight: 400;
-            line-height: 2;
-        }
-
-        .mc-content {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            font-weight: 300;
-            line-height: 2.2;
-        }
-
-        /* ===== SERIES TAGS ===== */
-        .series-section {
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .series-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .series-tag {
-            padding: 0.9rem 2rem;
-            background: var(--morandi-cream);
-            border: 1px solid var(--morandi-warm);
-            font-size: 0.8rem;
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .series-tag:hover {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            border-color: var(--bg-dark);
-        }
-
-        /* ===== CLOSING ===== */
-        .closing {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(180deg, var(--morandi-nude) 0%, var(--morandi-blush) 100%);
-            text-align: center;
-            padding: 6rem 2rem;
-        }
-
-        .closing-inner {
-            max-width: 650px;
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 1s ease;
-        }
-
-        .closing-inner.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .closing-big {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-            font-weight: 300;
-            line-height: 1.8;
-            letter-spacing: 0.03em;
-        }
-
-        .closing-big em {
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        .closing-sub {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 300;
-            line-height: 2.2;
-            margin-top: 3rem;
-        }
-
-        .closing-sign {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.5rem;
-            letter-spacing: 0.5em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-top: 5rem;
-            opacity: 0.5;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            background: var(--bg-darker);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.5rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.2);
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-
-        /* ===== FILMOGRAPHY SHOWCASE ===== */
+        .concept-morandi-3 .concept-tag { color: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.1); }
+        /* ===== FILMOGRAPHY ===== */
         .filmography-showcase {
             background: var(--morandi-nude);
             padding: 0;
@@ -698,10 +240,7 @@
             transform: translateY(20px);
             transition: all 0.8s ease 0.2s;
         }
-        .film-strip.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .film-strip.visible { opacity: 1; transform: translateY(0); }
         .film-strip-item {
             flex: 1;
             min-width: 0;
@@ -710,14 +249,12 @@
             position: relative;
             transition: flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        .film-strip-item:hover {
-            flex: 1.8;
-        }
+        .film-strip-item:hover { flex: 1.8; }
         .film-strip-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%;
+            object-position: center top;
             filter: grayscale(20%) brightness(0.95);
             transition: all 0.6s ease;
         }
@@ -725,37 +262,261 @@
             filter: grayscale(0%) brightness(1);
             transform: scale(1.03);
         }
-        @media (max-width: 768px) {
-            .film-strip { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .film-strip-item { min-width: 140px; flex: none; width: 140px; height: 200px; }
+        /* ===== COUPLE GALLERY (十年同行) ===== */
+        .couple-gallery {
+            background: linear-gradient(135deg, var(--morandi-blush), var(--morandi-cream));
+            padding: 5rem 2rem;
+            overflow: hidden;
         }
-
-        /* ===== ACCORDION MODULES ===== */
+        .couple-gallery-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s ease 0.2s;
+        }
+        .couple-gallery-inner.visible { opacity: 1; transform: translateY(0); }
+        .couple-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 4px;
+            filter: brightness(0.97);
+            transition: all 0.5s ease;
+        }
+        .couple-img:hover {
+            filter: brightness(1);
+            transform: scale(1.02);
+        }
+        /* ===== DIVIDER ===== */
+        .divider {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .divider-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, transparent, var(--morandi-taupe), transparent);
+        }
+        /* ===== CONTENT SECTIONS ===== */
+        .section {
+            padding: 8rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s ease;
+        }
+        .section-header.visible { opacity: 1; transform: translateY(0); }
+        .section-chapter {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.6em;
+            text-transform: uppercase;
+            color: var(--accent-soft);
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+        }
+        .section-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            margin-top: 1rem;
+        }
+        /* ===== PERSONA CARDS ===== */
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: var(--morandi-warm);
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s ease 0.2s;
+        }
+        .persona-grid.visible { opacity: 1; transform: translateY(0); }
+        .persona-card {
+            background: var(--bg-main);
+            padding: 3.5rem 2.5rem;
+            transition: background 0.4s ease;
+        }
+        .persona-card:hover { background: var(--morandi-cream); }
+        .persona-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--morandi-pink);
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+        .persona-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+        .persona-desc {
+            font-size: 0.82rem;
+            line-height: 2.2;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        /* ===== QUOTE BLOCK ===== */
+        .quote-block {
+            background: var(--morandi-nude);
+            padding: 6rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+            position: relative;
+        }
+        .quote-block::before {
+            content: '\201C';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 8rem;
+            color: var(--morandi-pink);
+            opacity: 0.3;
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            line-height: 1;
+        }
+        .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 400;
+            font-style: italic;
+            line-height: 2;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        /* ===== STATS ===== */
+        .stats-bar {
+            background: var(--bg-dark);
+            padding: 5rem 2rem;
+        }
+        .stats-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+        }
+        .stat-item {
+            padding: 2rem;
+            border-right: 1px solid rgba(255,255,255,0.06);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: var(--morandi-pink);
+        }
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-top: 1rem;
+        }
+        /* ===== DIRECTION ===== */
+        .direction-group {
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--morandi-warm);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+        .direction-group.visible { opacity: 1; transform: translateY(0); }
+        .direction-group:last-child { border-bottom: none; }
+        .dir-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .dir-pct {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: var(--accent);
+        }
+        .dir-name {
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+        }
+        .dir-items {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .dir-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            font-size: 0.82rem;
+            line-height: 2;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        .dir-item strong {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        /* ===== MODULE SECTION (ACCORDION) ===== */
+        .module-section {
+            background: var(--morandi-cream);
+            padding: 8rem 2rem;
+        }
+        .module-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
         .accordion-card {
             background: var(--bg-main);
             margin-bottom: 1.5rem;
-            border-left: 4px solid var(--morandi-pink);
+            border-left: 5px solid var(--morandi-pink);
             overflow: hidden;
             transition: all 0.4s ease;
             border-radius: 4px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.02);
         }
-        .accordion-card:nth-child(1) { border-left-color: #c9a87c; }
-        .accordion-card:nth-child(2) { border-left-color: #b8a9c9; }
-        .accordion-card:nth-child(3) { border-left-color: #a3b8a0; }
+        .accordion-card:nth-child(2) { border-left-color: #c9a87c; }
+        .accordion-card:nth-child(3) { border-left-color: #b8a9c9; }
+        .accordion-card:nth-child(4) { border-left-color: #a3b8a0; }
         .accordion-card:hover {
             box-shadow: 0 8px 30px rgba(0,0,0,0.06);
             transform: translateX(2px);
         }
         .accordion-card.active {
             box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-            background: #fdfcfa;
         }
-        .accordion-card.active:nth-child(1) { background: linear-gradient(135deg, #fdfcfa 0%, #faf6f0 100%); border-left-width: 5px; }
-        .accordion-card.active:nth-child(2) { background: linear-gradient(135deg, #fdfcfa 0%, #f8f5fc 100%); border-left-width: 5px; }
-        .accordion-card.active:nth-child(3) { background: linear-gradient(135deg, #fdfcfa 0%, #f4f8f3 100%); border-left-width: 5px; }
+        .accordion-card.active:nth-child(2) { background: linear-gradient(135deg, #fdfcfa 0%, #faf6f0 100%); border-left-width: 6px; }
+        .accordion-card.active:nth-child(3) { background: linear-gradient(135deg, #fdfcfa 0%, #f8f5fc 100%); border-left-width: 6px; }
+        .accordion-card.active:nth-child(4) { background: linear-gradient(135deg, #fdfcfa 0%, #f4f8f3 100%); border-left-width: 6px; }
         .accordion-header {
-            padding: 2rem 3rem;
+            padding: 2.5rem 3rem;
             display: flex;
             align-items: center;
             gap: 2rem;
@@ -767,39 +528,42 @@
             background: rgba(201, 168, 124, 0.05);
         }
         .accordion-card.active .accordion-header {
-            padding-bottom: 1.2rem;
+            padding-bottom: 1.5rem;
         }
         .accordion-header .mc-name {
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            min-width: 100px;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            min-width: 140px;
+            color: var(--text-primary);
         }
         .accordion-header .mc-purpose {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: var(--accent);
             font-weight: 400;
             flex: 1;
         }
         .accordion-icon {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 300;
-            color: var(--morandi-pink);
+            color: var(--bg-main);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             line-height: 1;
-            width: 32px;
-            height: 32px;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: rgba(201, 168, 124, 0.08);
+            background: var(--accent);
+            flex-shrink: 0;
         }
         .accordion-card.active .accordion-icon {
             transform: rotate(45deg);
-            background: rgba(201, 168, 124, 0.18);
-            color: #c9a87c;
+            background: var(--bg-dark);
+            color: var(--text-light);
         }
         .accordion-body {
             max-height: 0;
@@ -807,7 +571,7 @@
             transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .accordion-card.active .accordion-body {
-            max-height: 800px;
+            max-height: 1000px;
         }
         .accordion-content {
             padding: 0 3rem 2.5rem;
@@ -873,19 +637,20 @@
             color: var(--text-muted);
             font-weight: 300;
         }
-
         /* ===== SERIES ACCORDION ===== */
+        .series-section {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
         .series-accordion {
             max-width: 800px;
             margin: 3rem auto 0;
+            text-align: left;
             opacity: 0;
             transform: translateY(25px);
             transition: all 0.8s ease 0.2s;
         }
-        .series-accordion.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .series-accordion.visible { opacity: 1; transform: translateY(0); }
         .series-acc-item {
             border-bottom: 1px solid var(--morandi-warm);
             border-left: 3px solid transparent;
@@ -904,7 +669,7 @@
         .series-acc-item.active:nth-child(odd) { border-left-color: #c9a87c; }
         .series-acc-item.active:nth-child(even) { border-left-color: #b8a9c9; }
         .series-acc-header {
-            padding: 1.5rem 1rem;
+            padding: 1.5rem 1.5rem;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -913,11 +678,11 @@
         }
         .series-acc-header:hover {
             background: var(--morandi-cream);
-            padding-left: 1.5rem;
+            padding-left: 2rem;
         }
         .series-acc-name {
-            font-size: 0.9rem;
-            font-weight: 400;
+            font-size: 1rem;
+            font-weight: 500;
             letter-spacing: 0.08em;
             color: var(--text-primary);
             flex: 1;
@@ -932,7 +697,9 @@
             border: 1px solid var(--morandi-warm);
         }
         .series-acc-header .accordion-icon {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            width: 32px;
+            height: 32px;
         }
         .series-acc-body {
             max-height: 0;
@@ -944,16 +711,71 @@
         }
         .series-acc-item.active .accordion-icon {
             transform: rotate(45deg);
+            background: var(--bg-dark);
         }
         .series-acc-body p {
-            padding: 0 1rem 1.5rem;
+            padding: 0 1.5rem 1.5rem;
             font-size: 0.82rem;
             line-height: 2.2;
             color: var(--text-secondary);
             font-weight: 300;
         }
-
-
+        /* ===== CLOSING ===== */
+        .closing {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem;
+            background: var(--bg-dark);
+        }
+        .closing-inner {
+            text-align: center;
+            max-width: 700px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        .closing-inner.visible { opacity: 1; transform: translateY(0); }
+        .closing-big {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+        .closing-big em {
+            font-style: italic;
+            color: var(--morandi-pink);
+        }
+        .closing-sub {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 2.4;
+            color: rgba(255,255,255,0.5);
+            margin-top: 3rem;
+        }
+        .closing-sign {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.2);
+            margin-top: 4rem;
+        }
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: var(--bg-darker);
+        }
+        .footer p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.5rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.2);
+        }
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .nav { padding: 1.5rem 1.5rem; }
@@ -962,18 +784,21 @@
             .stats-inner { grid-template-columns: 1fr; }
             .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
             .stat-item:last-child { border-bottom: none; }
-            .module-card { grid-template-columns: 1fr; gap: 1rem; padding: 2rem; }
             .section { padding: 5rem 1.5rem; }
             .dir-item { grid-template-columns: 80px 1fr; gap: 1rem; }
             .hero::before, .hero::after { display: none; }
+            .film-strip { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .film-strip-item { min-width: 140px; flex: none; width: 140px; height: 200px; }
+            .accordion-header { padding: 1.5rem 1.5rem; gap: 1rem; flex-wrap: wrap; }
+            .accordion-header .mc-name { font-size: 1.1rem; min-width: auto; width: 100%; }
+            .accordion-content { padding: 0 1.5rem 2rem; }
+            .couple-gallery-inner { grid-template-columns: 1fr; }
+            .couple-img { height: 300px; }
         }
     </style>
 </head>
 <body>
-
 <div class="progress" id="progress"></div>
-
-<!-- NAV -->
 <nav class="nav" id="nav">
     <div class="nav-brand">XINYI</div>
     <ul class="nav-links">
@@ -983,16 +808,14 @@
         <li><a href="#vision">愿景</a></li>
     </ul>
 </nav>
-
 <!-- HERO -->
 <section class="hero">
     <p class="hero-label">Social Media Strategy · 2025</p>
-    <h1 class="hero-title">Xinyi</h1>
+    <h1 class="hero-title">Zhang Xinyi</h1>
     <p class="hero-chinese">张 歆 艺</p>
     <div class="hero-line"></div>
     <p class="hero-scroll">Scroll to explore</p>
 </section>
-
 <!-- IDENTITY: 演员身份 -->
 <section class="concept concept-morandi-1" style="min-height: auto; padding: 6rem 2rem 3rem;">
     <div class="concept-inner" data-reveal>
@@ -1013,9 +836,7 @@
         <div class="film-strip-item"><img src="images/film7_zanmen.jpg" alt="" loading="lazy"></div>
     </div>
 </section>
-
 <div class="divider"><div class="divider-line"></div></div>
-
 <!-- IDENTITY: 商业潜力 -->
 <section class="concept concept-morandi-2">
     <div class="concept-inner" data-reveal>
@@ -1023,17 +844,14 @@
         <p class="concept-sub">演员的底子 + 真实的人设 + 妈妈的身份<br>= 站着，把钱挣了。</p>
     </div>
 </section>
-
 <!-- CONCEPT: 不是降维 -->
 <section class="concept concept-morandi-3">
     <div class="concept-inner" data-reveal>
         <p class="concept-big">这不是降维<br>这是<em>与时俱进</em></p>
-        <p class="concept-sub" style="color: rgba(255,255,255,0.5);">最好的商业，是做自己。</p>
+        <p class="concept-sub" style="color: rgba(255,255,255,0.5);">当一个好演员愿意走进千万个家庭的日常，<br>那不是放下身段，那是一种<strong style="color: var(--morandi-pink);">格局</strong>。</p>
     </div>
 </section>
-
 <div class="divider"><div class="divider-line"></div></div>
-
 <!-- CONCEPT: 真实 -->
 <section class="concept concept-morandi-4">
     <div class="concept-inner" data-reveal>
@@ -1041,7 +859,6 @@
         <p class="concept-tag">The Power of Authenticity</p>
     </div>
 </section>
-
 <!-- CONCEPT: 不完美 -->
 <section class="concept concept-morandi-1">
     <div class="concept-inner" data-reveal>
@@ -1049,49 +866,42 @@
         <p class="concept-sub">你不需要成为另一个人，<br>你只需要成为她们心中的那个你。</p>
     </div>
 </section>
-
-<div class="divider"><div class="divider-line"></div></div>
-
-<!-- TRANSITION -->
+<!-- CONCEPT: 过渡 -->
 <section class="concept concept-morandi-2">
     <div class="concept-inner" data-reveal>
         <p class="concept-big">接下来的一切<br>都是为了让这份真实<br><em>被更多人看见</em></p>
         <p class="concept-tag">The Strategy Begins Here</p>
     </div>
 </section>
-
-<!-- PERSONA -->
+<!-- CHAPTER I: 人设 -->
 <div class="section" id="persona">
     <div class="section-header" data-reveal>
         <p class="section-chapter">Chapter I</p>
         <h2 class="section-title">你是谁</h2>
         <p class="section-desc">你在她们心中的三个面向</p>
     </div>
-
     <div class="persona-grid" data-reveal>
         <div class="persona-card">
             <div class="persona-num">01</div>
             <div class="persona-name">真实接地气</div>
-            <p class="persona-desc">明星真实的一面，有大家想象的明星高级感，也有寻常人家都有的烦恼。你是那个在微博上分享泵奶闹钟的新手妈妈。</p>
+            <div class="persona-desc">明星真实的一面，有大家想象的明星高级感，也有寻常人家都有的烦恼。你是那个在微博上分享泵奶闹钟的新手妈妈。</div>
         </div>
         <div class="persona-card">
             <div class="persona-num">02</div>
             <div class="persona-name">手把手实操</div>
-            <p class="persona-desc">带着大家实操带娃中的各种问题，请各行业专家，带着大家一起始终美丽。亲密关系中会遇到的问题，也摊开来解决。</p>
+            <div class="persona-desc">带着大家实操带娃中的各种问题，请各行业专家，带着大家一起始终美丽。亲密关系中会遇到的问题，也摊开来解决。</div>
         </div>
         <div class="persona-card">
             <div class="persona-num">03</div>
             <div class="persona-name">共情不完美</div>
-            <p class="persona-desc">妈妈在家庭中的压力是非常大的，要处理亲子、夫妻、婆媳等各种关系。我能共情你们的不完美，因为我也是你们中的一员。</p>
+            <div class="persona-desc">妈妈在家庭中的压力是非常大的，要处理亲子、夫妻、婆媳等各种关系。我能共情你们的不完美，因为我也是你们中的一员。</div>
         </div>
     </div>
 </div>
-
 <!-- QUOTE -->
 <div class="quote-block">
     <p class="quote-text">我能共情你们的不完美，<br>因为我也是你们中的一员。</p>
 </div>
-
 <!-- STATS -->
 <div class="stats-bar">
     <div class="stats-inner">
@@ -1109,15 +919,13 @@
         </div>
     </div>
 </div>
-
-<!-- DIRECTION -->
+<!-- CHAPTER II: 内容方向 -->
 <div class="section" id="direction">
     <div class="section-header" data-reveal>
         <p class="section-chapter">Chapter II</p>
         <h2 class="section-title">内容方向</h2>
         <p class="section-desc">每一条内容，都在建立信任</p>
     </div>
-
     <div class="direction-group" data-reveal>
         <div class="dir-header">
             <span class="dir-pct">50%+</span>
@@ -1130,7 +938,6 @@
             <div class="dir-item"><strong>宝妈真心话</strong><span>产后情绪，带娃压力，代际矛盾，强调共鸣，共情每个家庭的不完美</span></div>
         </div>
     </div>
-
     <div class="direction-group" data-reveal>
         <div class="dir-header">
             <span class="dir-pct">20%+</span>
@@ -1142,7 +949,6 @@
             <div class="dir-item"><strong>10周年庆</strong><span>可以作为全年的一个highlight来做个几集内容</span></div>
         </div>
     </div>
-
     <div class="direction-group" data-reveal>
         <div class="dir-header">
             <span class="dir-pct">10-20%</span>
@@ -1153,7 +959,6 @@
         </div>
     </div>
 </div>
-
 <!-- MODULES -->
 <section class="module-section" id="modules">
     <div class="module-inner">
@@ -1162,7 +967,6 @@
             <h2 class="section-title">核心模块</h2>
             <p class="section-desc">三个层级，构建完整的内容生态</p>
         </div>
-
         <div class="accordion-card" data-reveal>
             <div class="accordion-header" onclick="toggleAccordion(this)">
                 <div class="mc-name">大综艺项目</div>
@@ -1221,13 +1025,20 @@
                         <span class="acc-ep">日常出游 · 真实状态</span>
                         <span class="acc-ep">深夜独白 · 说不出口的话</span>
                     </div>
-                    <p class="accordion-highlight">共情 = 粘性。当一个明星愿意展示自己的脆弱，粉丝的关系就从"仰望"变成了"陪伴"。</p>
+                    <p>共情 = 粘性。当一个明星愿意展示自己的脆弱，粉丝的关系就从"仰望"变成了"陪伴"。</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+<!-- COUPLE GALLERY: 十年同行 -->
+<section class="couple-gallery">
+    <div class="couple-gallery-inner" data-reveal>
+        <img class="couple-img" src="images/couple1.webp" alt="" loading="lazy">
+        <img class="couple-img" src="images/couple2.webp" alt="" loading="lazy">
+        <img class="couple-img" src="images/couple3.webp" alt="" loading="lazy">
+    </div>
+</section>
 <!-- SERIES -->
 <div class="series-section">
     <div class="section-header" data-reveal>
@@ -1328,7 +1139,6 @@
         </div>
     </div>
 </div>
-
 <!-- CLOSING -->
 <section class="closing" id="vision">
     <div class="closing-inner" data-reveal>
@@ -1337,12 +1147,10 @@
         <p class="closing-sign">Confidential · For Xinyi Only · 2025</p>
     </div>
 </section>
-
 <!-- FOOTER -->
 <footer class="footer">
     <p>Strategy by Unbound · All Rights Reserved</p>
 </footer>
-
 <script>
 // Progress bar
 window.addEventListener('scroll', () => {
@@ -1350,7 +1158,6 @@ window.addEventListener('scroll', () => {
     const p = (window.scrollY / h) * 100;
     document.getElementById('progress').style.width = p + '%';
 });
-
 // Nav scroll effect
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('nav');
@@ -1360,7 +1167,6 @@ window.addEventListener('scroll', () => {
         nav.classList.remove('scrolled');
     }
 });
-
 // Reveal on scroll
 const reveals = document.querySelectorAll('[data-reveal]');
 const io = new IntersectionObserver((entries) => {
@@ -1371,33 +1177,26 @@ const io = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 reveals.forEach(el => io.observe(el));
-
 // Accordion toggle for module cards
 function toggleAccordion(header) {
     const card = header.parentElement;
     const isActive = card.classList.contains('active');
-    // Close all siblings in same container
     const siblings = card.parentElement.querySelectorAll('.accordion-card');
     siblings.forEach(s => s.classList.remove('active'));
-    // Toggle current
     if (!isActive) {
         card.classList.add('active');
     }
 }
-
 // Accordion toggle for series items
 function toggleSeriesAcc(header) {
     const item = header.parentElement;
     const isActive = item.classList.contains('active');
-    // Close all siblings
     const siblings = item.parentElement.querySelectorAll('.series-acc-item');
     siblings.forEach(s => s.classList.remove('active'));
-    // Toggle current
     if (!isActive) {
         item.classList.add('active');
     }
 }
 </script>
-
 </body>
 </html>
