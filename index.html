@@ -68,6 +68,74 @@
             padding: 1.2rem 3rem;
             box-shadow: 0 1px 0 rgba(0,0,0,0.04);
         }
+        /* ===== BGM PLAYER ===== */
+        .bgm-player {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(42, 36, 32, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .bgm-player:hover {
+            background: rgba(42, 36, 32, 0.95);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+        }
+        .bgm-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: var(--morandi-pink);
+            color: #fff;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .bgm-btn:hover { transform: scale(1.1); background: var(--accent); }
+        .bgm-volume {
+            width: 60px;
+            height: 3px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+        }
+        .bgm-volume::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--morandi-pink);
+            cursor: pointer;
+        }
+        .bgm-track {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.05em;
+            max-width: 80px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        @media (max-width: 768px) {
+            .bgm-player { bottom: 1rem; right: 1rem; padding: 0.6rem 1rem; }
+            .bgm-track { display: none; }
+        }
         .nav-brand {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
@@ -1274,7 +1342,48 @@
 <footer class="footer">
     <p>Strategy by Lipa · All Rights Reserved</p>
 </footer>
+<!-- BGM PLAYER -->
+<div class="bgm-player" id="bgmPlayer">
+    <button class="bgm-btn" id="bgmPlayBtn" onclick="toggleBGM()">&#9654;</button>
+    <button class="bgm-btn" id="bgmNextBtn" onclick="nextTrack()" style="font-size:0.6rem;">&#9197;</button>
+    <input type="range" class="bgm-volume" id="bgmVolume" min="0" max="100" value="25" oninput="setVolume(this.value)">
+    <span class="bgm-track" id="bgmTrackName">Go Rogue</span>
+</div>
 <script>
+// BGM Player
+const tracks = [
+    { src: 'audio/go_rogue.mp3', name: 'Go Rogue' },
+    { src: 'audio/closer.mp3', name: 'Closer' }
+];
+let currentTrack = 0;
+let isPlaying = false;
+const audio = new Audio(tracks[0].src);
+audio.volume = 0.25;
+audio.loop = false;
+audio.addEventListener('ended', () => { nextTrack(); });
+
+function toggleBGM() {
+    if (isPlaying) {
+        audio.pause();
+        document.getElementById('bgmPlayBtn').innerHTML = '&#9654;';
+    } else {
+        audio.play();
+        document.getElementById('bgmPlayBtn').innerHTML = '&#10074;&#10074;';
+    }
+    isPlaying = !isPlaying;
+}
+
+function nextTrack() {
+    currentTrack = (currentTrack + 1) % tracks.length;
+    audio.src = tracks[currentTrack].src;
+    document.getElementById('bgmTrackName').textContent = tracks[currentTrack].name;
+    if (isPlaying) { audio.play(); }
+}
+
+function setVolume(val) {
+    audio.volume = val / 100;
+}
+
 // Progress bar
 window.addEventListener('scroll', () => {
     const h = document.documentElement.scrollHeight - window.innerHeight;
