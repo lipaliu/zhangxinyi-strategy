@@ -217,7 +217,7 @@
         /* ===== EDITORIAL PHOTO SECTIONS ===== */
         .editorial-photo {
             width: 100%;
-            padding: 0;
+            padding: 4rem 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -231,57 +231,33 @@
             transform: translateY(0);
         }
         .editorial-photo img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
             display: block;
-            object-fit: contain;
+            height: auto;
+            border-radius: 2px;
         }
-        .editorial-photo.full-bleed img {
-            max-width: 100%;
-        }
-        .editorial-photo.contained {
-            padding: 4rem 2rem;
-            background: var(--bg-main);
-        }
-        .editorial-photo.dark {
-            background: var(--bg-dark);
-            padding: 4rem 2rem;
-        }
-        .editorial-photo.nude {
-            background: var(--morandi-nude);
-            padding: 4rem 2rem;
-        }
+        .editorial-photo.bg-main { background: var(--bg-main); }
+        .editorial-photo.bg-dark { background: var(--bg-dark); }
+        .editorial-photo.bg-nude { background: var(--morandi-nude); }
+        .editorial-photo.bg-blush { background: linear-gradient(135deg, var(--morandi-blush), var(--morandi-cream)); }
         .editorial-duo {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3px;
+            gap: 1.5rem;
             max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
+            align-items: stretch;
         }
         .editorial-duo img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-        }
-        .editorial-trio {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 3px;
-            padding: 0;
-        }
-        .editorial-trio img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
+            border-radius: 2px;
         }
         @media (max-width: 768px) {
             .editorial-duo { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1rem; }
-            .editorial-trio { grid-template-columns: 1fr; }
-            .editorial-photo img { max-width: 100%; }
+            .editorial-photo img { width: 100%; }
         }
         /* ===== FILMOGRAPHY ===== */
         .filmography-showcase {
@@ -880,11 +856,6 @@
         <p class="concept-tag">Actress · Storyteller · Icon</p>
     </div>
 </section>
-<!-- EDITORIAL: 周末画报 + 杀青照 -->
-<div class="editorial-duo" style="background: var(--morandi-nude); padding: 3rem 2rem; max-width: 100%;">
-    <img src="images/modern_weekly.webp" alt="" loading="lazy" style="max-width:480px; margin:0 auto;">
-    <img src="images/wrap_flowers.webp" alt="" loading="lazy" style="max-width:480px; margin:0 auto;">
-</div>
 <!-- FILMOGRAPHY SHOWCASE -->
 <section class="filmography-showcase">
     <div class="film-strip" data-reveal>
@@ -897,9 +868,10 @@
         <div class="film-strip-item"><img src="images/film7_zanmen.jpg" alt="" loading="lazy"></div>
     </div>
 </section>
-<!-- EDITORIAL: 粉色花朵写真 -->
-<div class="editorial-photo contained" data-reveal>
-    <img src="images/pink_flower_portrait.jpg" alt="" loading="lazy" style="max-width:420px;">
+<!-- EDITORIAL: 演员双图 (杀青捷报 + 角色照) -->
+<div class="editorial-duo" style="background: linear-gradient(135deg, var(--morandi-blush), var(--morandi-cream));">
+    <img src="images/weibo_flowers_web.jpg" alt="" loading="lazy">
+    <img src="images/weibo_fashion1_clean_web.jpg" alt="" loading="lazy">
 </div>
 <div class="divider"><div class="divider-line"></div></div>
 <!-- IDENTITY: 商业潜力 -->
@@ -909,9 +881,10 @@
         <p class="concept-sub">因为最好的商业，是做自己。</p>
     </div>
 </section>
-<!-- EDITORIAL: 黑白夫妻酒店照 -->
-<div class="editorial-photo dark" data-reveal>
-    <img src="images/bw_hotel_1.jpg" alt="" loading="lazy" style="max-width:500px;">
+<!-- EDITORIAL: 十年同行双图 (BW婚纱照) -->
+<div class="editorial-duo" style="background: var(--bg-dark); padding: 4rem 3rem;">
+    <img src="images/weibo_photo1_web.jpg" alt="" loading="lazy">
+    <img src="images/weibo_photo2_web.jpg" alt="" loading="lazy">
 </div>
 <!-- CONCEPT: 不是降维 -->
 <section class="concept concept-morandi-3">
@@ -967,9 +940,9 @@
         </div>
     </div>
 </div>
-<!-- EDITORIAL: 日常休闲照 -->
-<div class="editorial-photo nude" data-reveal>
-    <img src="images/casual_bench.jpg" alt="" loading="lazy" style="max-width:700px;">
+<!-- EDITORIAL: 日常夫妻横版 -->
+<div class="editorial-photo bg-nude" data-reveal>
+    <img src="images/weibo_photo4_web.jpg" alt="" loading="lazy" style="width:900px; max-width:95%;">
 </div>
 <!-- QUOTE -->
 <div class="quote-block">
@@ -1104,17 +1077,10 @@
         </div>
     </div>
 </section>
-<!-- COUPLE GALLERY: 十年同行 -->
-<section class="couple-gallery">
-    <div class="couple-gallery-inner" data-reveal>
-        <img class="couple-img" src="images/bw_kiss.webp" alt="" loading="lazy">
-        <img class="couple-img" src="images/bw_hotel_2.webp" alt="" loading="lazy">
-        <img class="couple-img" src="images/subway_couple.jpg" alt="" loading="lazy">
-    </div>
-</section>
-<!-- EDITORIAL: 阳光笑脸 -->
-<div class="editorial-photo contained" data-reveal style="padding: 3rem 2rem;">
-    <img src="images/sunshine_smile.webp" alt="" loading="lazy" style="max-width:400px; border-radius: 4px;">
+<!-- EDITORIAL: 底部双图 (日常+笑脸) -->
+<div class="editorial-duo" style="background: var(--morandi-cream);">
+    <img src="images/casual_bench_web.jpg" alt="" loading="lazy">
+    <img src="images/sunshine_smile.jpg" alt="" loading="lazy">
 </div>
 <!-- SERIES -->
 <div class="series-section">
