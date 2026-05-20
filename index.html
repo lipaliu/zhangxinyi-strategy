@@ -99,39 +99,26 @@
             justify-content: center;
             text-align: center;
             padding: 6rem 2rem;
-            background: linear-gradient(180deg, var(--morandi-blush) 0%, var(--bg-main) 100%);
+            background: url('images/hero_bg.png') center center / cover no-repeat;
             position: relative;
         }
         .hero::before {
             content: '';
             position: absolute;
-            top: 10%;
-            right: 8%;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: var(--morandi-sage);
-            opacity: 0.15;
-            filter: blur(80px);
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 0;
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 15%;
-            left: 10%;
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: var(--morandi-mauve);
-            opacity: 0.12;
-            filter: blur(60px);
+        .hero > * {
+            position: relative;
+            z-index: 1;
         }
         .hero-label {
             font-family: 'Inter', sans-serif;
             font-size: 0.55rem;
             letter-spacing: 0.8em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.6);
             margin-bottom: 3rem;
             opacity: 0;
             animation: fadeUp 1s ease 0.3s forwards;
@@ -142,7 +129,7 @@
             font-weight: 300;
             letter-spacing: 0.05em;
             line-height: 1.1;
-            color: var(--text-primary);
+            color: #fff;
             opacity: 0;
             animation: fadeUp 1s ease 0.6s forwards;
         }
@@ -150,7 +137,7 @@
             font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             font-weight: 200;
             letter-spacing: 0.8em;
-            color: var(--text-secondary);
+            color: rgba(255,255,255,0.7);
             margin-top: 1.5rem;
             opacity: 0;
             animation: fadeUp 1s ease 0.9s forwards;
@@ -158,7 +145,7 @@
         .hero-line {
             width: 1px;
             height: 60px;
-            background: linear-gradient(to bottom, var(--morandi-pink), transparent);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
             margin-top: 4rem;
             opacity: 0;
             animation: fadeUp 1s ease 1.2s forwards;
@@ -168,7 +155,7 @@
             font-size: 0.5rem;
             letter-spacing: 0.5em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.5);
             margin-top: 1.5rem;
             opacity: 0;
             animation: fadeUp 1s ease 1.4s forwards;
@@ -227,6 +214,75 @@
             border: 1px solid rgba(0,0,0,0.08);
         }
         .concept-morandi-3 .concept-tag { color: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.1); }
+        /* ===== EDITORIAL PHOTO SECTIONS ===== */
+        .editorial-photo {
+            width: 100%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s ease;
+        }
+        .editorial-photo.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .editorial-photo img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+        .editorial-photo.full-bleed img {
+            max-width: 100%;
+        }
+        .editorial-photo.contained {
+            padding: 4rem 2rem;
+            background: var(--bg-main);
+        }
+        .editorial-photo.dark {
+            background: var(--bg-dark);
+            padding: 4rem 2rem;
+        }
+        .editorial-photo.nude {
+            background: var(--morandi-nude);
+            padding: 4rem 2rem;
+        }
+        .editorial-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .editorial-duo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+        .editorial-trio {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3px;
+            padding: 0;
+        }
+        .editorial-trio img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .editorial-duo { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 1rem; }
+            .editorial-trio { grid-template-columns: 1fr; }
+            .editorial-photo img { max-width: 100%; }
+        }
         /* ===== FILMOGRAPHY ===== */
         .filmography-showcase {
             background: var(--morandi-nude);
@@ -824,6 +880,11 @@
         <p class="concept-tag">Actress · Storyteller · Icon</p>
     </div>
 </section>
+<!-- EDITORIAL: 周末画报 + 杀青照 -->
+<div class="editorial-duo" style="background: var(--morandi-nude); padding: 3rem 2rem; max-width: 100%;">
+    <img src="images/modern_weekly.webp" alt="" loading="lazy" style="max-width:480px; margin:0 auto;">
+    <img src="images/wrap_flowers.webp" alt="" loading="lazy" style="max-width:480px; margin:0 auto;">
+</div>
 <!-- FILMOGRAPHY SHOWCASE -->
 <section class="filmography-showcase">
     <div class="film-strip" data-reveal>
@@ -836,6 +897,10 @@
         <div class="film-strip-item"><img src="images/film7_zanmen.jpg" alt="" loading="lazy"></div>
     </div>
 </section>
+<!-- EDITORIAL: 粉色花朵写真 -->
+<div class="editorial-photo contained" data-reveal>
+    <img src="images/pink_flower_portrait.jpg" alt="" loading="lazy" style="max-width:420px;">
+</div>
 <div class="divider"><div class="divider-line"></div></div>
 <!-- IDENTITY: 商业潜力 -->
 <section class="concept concept-morandi-2">
@@ -844,6 +909,10 @@
         <p class="concept-sub">因为最好的商业，是做自己。</p>
     </div>
 </section>
+<!-- EDITORIAL: 黑白夫妻酒店照 -->
+<div class="editorial-photo dark" data-reveal>
+    <img src="images/bw_hotel_1.jpg" alt="" loading="lazy" style="max-width:500px;">
+</div>
 <!-- CONCEPT: 不是降维 -->
 <section class="concept concept-morandi-3">
     <div class="concept-inner" data-reveal>
@@ -897,6 +966,10 @@
             <div class="persona-desc">妈妈在家庭中的压力是非常大的，要处理亲子、夫妻、婆媳等各种关系。我能共情你们的不完美，因为我也是你们中的一员。</div>
         </div>
     </div>
+</div>
+<!-- EDITORIAL: 日常休闲照 -->
+<div class="editorial-photo nude" data-reveal>
+    <img src="images/casual_bench.jpg" alt="" loading="lazy" style="max-width:700px;">
 </div>
 <!-- QUOTE -->
 <div class="quote-block">
@@ -1034,11 +1107,15 @@
 <!-- COUPLE GALLERY: 十年同行 -->
 <section class="couple-gallery">
     <div class="couple-gallery-inner" data-reveal>
-        <img class="couple-img" src="images/couple1.webp" alt="" loading="lazy">
-        <img class="couple-img" src="images/couple2.webp" alt="" loading="lazy">
-        <img class="couple-img" src="images/couple3.webp" alt="" loading="lazy">
+        <img class="couple-img" src="images/bw_kiss.webp" alt="" loading="lazy">
+        <img class="couple-img" src="images/bw_hotel_2.webp" alt="" loading="lazy">
+        <img class="couple-img" src="images/subway_couple.jpg" alt="" loading="lazy">
     </div>
 </section>
+<!-- EDITORIAL: 阳光笑脸 -->
+<div class="editorial-photo contained" data-reveal style="padding: 3rem 2rem;">
+    <img src="images/sunshine_smile.webp" alt="" loading="lazy" style="max-width:400px; border-radius: 4px;">
+</div>
 <!-- SERIES -->
 <div class="series-section">
     <div class="section-header" data-reveal>
