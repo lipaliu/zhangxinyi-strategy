@@ -177,6 +177,28 @@
         .concept-morandi-2 { background: var(--bg-main); }
         .concept-morandi-3 { background: var(--bg-dark); color: var(--text-light); }
         .concept-morandi-4 { background: linear-gradient(135deg, var(--morandi-blush), var(--morandi-cream)); }
+        /* Background image sections */
+        .concept-bg {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .concept-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            z-index: 0;
+        }
+        .concept-bg .concept-inner {
+            position: relative;
+            z-index: 1;
+        }
+        .concept-bg .concept-big { color: #fff; }
+        .concept-bg .concept-big em { color: var(--morandi-pink); }
+        .concept-bg .concept-sub { color: rgba(255,255,255,0.7); }
+        .concept-bg .concept-tag { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.2); }
         .concept-inner {
             text-align: center;
             max-width: 750px;
@@ -414,20 +436,33 @@
             background: var(--morandi-nude);
             padding: 6rem 2rem;
             text-align: center;
-            margin: 4rem 0;
+            margin: 0;
             position: relative;
+        }
+        .quote-block::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 0;
+        }
+        .quote-block .quote-text {
+            position: relative;
+            z-index: 1;
+            color: rgba(255,255,255,0.9);
         }
         .quote-block::before {
             content: '\201C';
             font-family: 'Cormorant Garamond', serif;
             font-size: 8rem;
             color: var(--morandi-pink);
-            opacity: 0.3;
+            opacity: 0.5;
             position: absolute;
             top: 2rem;
             left: 50%;
             transform: translateX(-50%);
             line-height: 1;
+            z-index: 1;
         }
         .quote-text {
             font-family: 'Cormorant Garamond', serif;
@@ -444,6 +479,18 @@
         .stats-bar {
             background: var(--bg-dark);
             padding: 5rem 2rem;
+            position: relative;
+        }
+        .stats-bar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 0;
+        }
+        .stats-bar .stats-inner {
+            position: relative;
+            z-index: 1;
         }
         .stats-inner {
             max-width: 900px;
@@ -520,6 +567,18 @@
         .module-section {
             background: var(--morandi-cream);
             padding: 8rem 2rem;
+            position: relative;
+        }
+        .module-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(245, 240, 235, 0.88);
+            z-index: 0;
+        }
+        .module-section .module-inner {
+            position: relative;
+            z-index: 1;
         }
         .module-inner {
             max-width: 1000px;
@@ -849,7 +908,7 @@
     <p class="hero-scroll">Scroll to explore</p>
 </section>
 <!-- IDENTITY: 演员身份 -->
-<section class="concept concept-morandi-1" style="min-height: auto; padding: 6rem 2rem 3rem;">
+<section class="concept concept-bg" style="background-image: url('images/weibo_flowers_web.jpg');">
     <div class="concept-inner" data-reveal>
         <p class="concept-big">首先，你是一个<em>演员</em></p>
         <p class="concept-sub">能抗剧，有作品，有观众缘。<br>从《北京爱情故事》到荧幕上的每一个角色——<br>你的底气，来自于你的实力。</p>
@@ -868,52 +927,36 @@
         <div class="film-strip-item"><img src="images/film7_zanmen.jpg" alt="" loading="lazy"></div>
     </div>
 </section>
-<!-- EDITORIAL: 演员区图片 -->
-<div class="editorial-photo bg-blush" data-reveal>
-    <img src="images/weibo_flowers_web.jpg" alt="" loading="lazy" style="width:420px; max-width:80%;">
-</div>
-<div class="divider"><div class="divider-line"></div></div>
 <!-- IDENTITY: 商业潜力 -->
-<section class="concept concept-morandi-2">
+<section class="concept concept-bg" style="background-image: url('images/elle_couple.jpg');">
     <div class="concept-inner" data-reveal>
         <p class="concept-big">同时，你拥有<br><em>无限的内容商业潜力</em></p>
         <p class="concept-sub">因为最好的商业，是做自己。</p>
     </div>
 </section>
-<!-- EDITORIAL: 十年同行 ELLE婚纱照背景 -->
-<div class="editorial-duo" style="background: var(--bg-main); padding: 3rem 2rem;">
-    <img src="images/elle_couple.jpg" alt="" loading="lazy">
-    <img src="images/elle_wedding.jpg" alt="" loading="lazy">
-</div>
-<!-- EDITORIAL: Cosmopolitan BW时尚大片 -->
-<div class="editorial-duo" style="background: #1a1a1a; padding: 2rem 1rem; gap: 3px;">
-    <img src="images/cosmo_station.jpg" alt="" loading="lazy">
-    <img src="images/cosmo_street.jpg" alt="" loading="lazy">
-</div>
 <!-- CONCEPT: 不是降维 -->
-<section class="concept concept-morandi-3">
+<section class="concept concept-bg" style="background-image: url('images/cosmo_station.jpg');">
     <div class="concept-inner" data-reveal>
         <p class="concept-big">这不是降维<br>这是<em>与时俱进</em></p>
-        <p class="concept-sub" style="color: rgba(255,255,255,0.5);">当一个好演员愿意走进千万个家庭的日常，那是一种<strong style="color: var(--morandi-pink);">格局</strong>。</p>
+        <p class="concept-sub">当一个好演员愿意走进千万个家庭的日常，那是一种<strong style="color: var(--morandi-pink);">格局</strong>。</p>
     </div>
 </section>
-<div class="divider"><div class="divider-line"></div></div>
 <!-- CONCEPT: 真实 -->
-<section class="concept concept-morandi-4">
+<section class="concept concept-bg" style="background-image: url('images/cosmo_street.jpg');">
     <div class="concept-inner" data-reveal>
-        <p class="concept-big" style="color: var(--text-primary);">每个女人都有一千种面孔<br>但只有<em>一种真实</em></p>
+        <p class="concept-big">每个女人都有一千种面孔<br>但只有<em>一种真实</em></p>
         <p class="concept-tag">The Power of Authenticity</p>
     </div>
 </section>
 <!-- CONCEPT: 不完美 -->
-<section class="concept concept-morandi-1">
+<section class="concept concept-bg" style="background-image: url('images/elle_wedding.jpg');">
     <div class="concept-inner" data-reveal>
         <p class="concept-big">不完美<br>才是最高级的<em>真实</em></p>
         <p class="concept-sub">你不需要成为另一个人，<br>你只需要成为她们心中的那个你。</p>
     </div>
 </section>
 <!-- CONCEPT: 过渡 -->
-<section class="concept concept-morandi-2">
+<section class="concept concept-bg" style="background-image: url('images/sunshine_smile.jpg');">
     <div class="concept-inner" data-reveal>
         <p class="concept-big">接下来的一切<br>都是为了让这份真实<br><em>被更多人看见</em></p>
         <p class="concept-tag">The Strategy Begins Here</p>
@@ -944,17 +987,13 @@
         </div>
     </div>
 </div>
-<!-- EDITORIAL: BW婚纱双图 -->
-<div class="editorial-duo" style="background: var(--bg-dark); padding: 3rem 2rem;">
-    <img src="images/weibo_photo1_web.jpg" alt="" loading="lazy">
-    <img src="images/weibo_photo2_web.jpg" alt="" loading="lazy">
-</div>
+
 <!-- QUOTE -->
-<div class="quote-block">
+<div class="quote-block" style="background-image: url('images/weibo_photo1_web.jpg'); background-size: cover; background-position: center; position: relative;">
     <p class="quote-text">我能共情你们的不完美，<br>因为我也是你们中的一员。</p>
 </div>
 <!-- STATS -->
-<div class="stats-bar">
+<div class="stats-bar" style="background-image: url('images/weibo_photo2_web.jpg'); background-size: cover; background-position: center;">
     <div class="stats-inner">
         <div class="stat-item">
             <div class="stat-num">50%+</div>
@@ -1011,7 +1050,7 @@
     </div>
 </div>
 <!-- MODULES -->
-<section class="module-section" id="modules">
+<section class="module-section" id="modules" style="background-image: url('images/casual_bench_web.jpg'); background-size: cover; background-position: center; position: relative;">
     <div class="module-inner">
         <div class="section-header" data-reveal>
             <p class="section-chapter">Chapter III</p>
@@ -1082,11 +1121,7 @@
         </div>
     </div>
 </section>
-<!-- EDITORIAL: 底部双图 (日常+笑脸) -->
-<div class="editorial-duo" style="background: var(--morandi-cream);">
-    <img src="images/casual_bench_web.jpg" alt="" loading="lazy">
-    <img src="images/sunshine_smile.jpg" alt="" loading="lazy">
-</div>
+
 <!-- SERIES -->
 <div class="series-section">
     <div class="section-header" data-reveal>
