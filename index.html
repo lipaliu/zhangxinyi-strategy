@@ -1384,6 +1384,28 @@ function setVolume(val) {
     audio.volume = val / 100;
 }
 
+// Autoplay on first interaction (browsers block autoplay without interaction)
+function startAutoplay() {
+    if (!isPlaying) {
+        audio.play().then(() => {
+            isPlaying = true;
+            document.getElementById('bgmPlayBtn').innerHTML = '&#10074;&#10074;';
+        }).catch(() => {});
+    }
+    document.removeEventListener('click', startAutoplay);
+    document.removeEventListener('scroll', startAutoplay);
+    document.removeEventListener('touchstart', startAutoplay);
+}
+document.addEventListener('click', startAutoplay);
+document.addEventListener('scroll', startAutoplay);
+document.addEventListener('touchstart', startAutoplay);
+
+// Also try direct autoplay
+audio.play().then(() => {
+    isPlaying = true;
+    document.getElementById('bgmPlayBtn').innerHTML = '&#10074;&#10074;';
+}).catch(() => {});
+
 // Progress bar
 window.addEventListener('scroll', () => {
     const h = document.documentElement.scrollHeight - window.innerHeight;
